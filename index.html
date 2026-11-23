@@ -1,0 +1,2526 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>TK Restiia Azhari — Tempat Pikiran Kecil Mekar</title>
+  <meta name="theme-color" content="#38bdf8" />
+  <meta name="description" content="TK Restiia Azhari - Taman Kanak-Kanak modern yang hangat, aman, dan kreatif untuk tumbuh kembang buah hati Anda." />
+
+  <!-- PWA Manifest sebagai Data URI (1-File PWA) -->
+  <link rel="manifest" href="data:application/manifest+json;charset=utf-8,%7B%22name%22%3A%22TK%20Restiia%20Azhari%22%2C%22short_name%22%3A%22TK%20Restiia%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23f0f9ff%22%2C%22theme_color%22%3A%22%2338bdf8%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage%2Fsvg%2Bxml%2C%253Csvg%2520xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%2520viewBox%3D%270%25200%2520100%2520100%27%253E%253Ccircle%2520cx%3D%2750%27%2520cy%3D%2750%27%2520r%3D%2745%27%2520fill%3D%27%2523facc15%27%2F%253E%253Ccircle%2520cx%3D%2736%27%2520cy%3D%2744%27%2520r%3D%275%27%2520fill%3D%27%25231e293b%27%2F%253E%253Ccircle%2520cx%3D%2764%27%2520cy%3D%2744%27%2520r%3D%275%27%2520fill%3D%27%25231e293b%27%2F%253E%253Cpath%2520d%3D%27M36%252062%2520Q50%252075%252064%252062%27%2520stroke%3D%27%25231e293b%27%2520stroke-width%3D%275%27%2520fill%3D%27none%27%2520stroke-linecap%3D%27round%27%2F%253E%253C%2Fsvg%253E%22%2C%22sizes%22%3A%22192x192%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%7D%5D%7D" />
+
+  <!-- Google Fonts: Fredoka (Clayful Headings) & Nunito (Clean Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Fredoka', 'sans-serif'],
+            sans: ['Nunito', 'sans-serif'],
+          },
+          colors: {
+            clayBlue: '#38a1f3',
+            clayPink: '#ec488a',
+            clayGreen: '#82c341',
+            clayOrange: '#f5a623',
+            clayNavy: '#1e3a6d',
+            clayCream: '#fef9e7',
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* ============================================================
+       FULL PAGE OVERLAY UNTUK BLOGGER & RESET DASAR
+       ============================================================ */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+      font-family: 'Nunito', sans-serif;
+      color: #1e3a6d;
+      background: #ffffff;
+      scroll-behavior: smooth;
+    }
+
+    #tk-app-shell {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+      z-index: 99999;
+      background: #ffffff;
+    }
+
+    h1, h2, h3, h4, .font-display {
+      font-family: 'Fredoka', sans-serif;
+    }
+
+    /* ============================================================
+       CLAYMORPHISM DESIGN SYSTEM (3D EMPUK & GLASSMORPHISM HALUS)
+       ============================================================ */
+    .clay-surface {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 28px;
+      box-shadow:
+        10px 14px 28px rgba(30, 58, 109, 0.10),
+        inset -6px -6px 14px rgba(148, 185, 226, 0.25),
+        inset 6px 6px 14px rgba(255, 255, 255, 0.95);
+      border: 2px solid rgba(255, 255, 255, 0.85);
+    }
+
+    .clay-pill-nav {
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 9999px;
+      box-shadow:
+        0 14px 30px rgba(30, 58, 109, 0.12),
+        inset -4px -5px 10px rgba(148, 185, 226, 0.22),
+        inset 4px 5px 10px rgba(255, 255, 255, 0.95);
+      border: 2px solid rgba(255, 255, 255, 0.9);
+    }
+
+    .clay-card-blue {
+      background: linear-gradient(155deg, #4db4ff 0%, #2d95e8 100%);
+      border-radius: 30px;
+      box-shadow:
+        12px 18px 30px rgba(45, 149, 232, 0.32),
+        inset -7px -8px 16px rgba(18, 92, 163, 0.35),
+        inset 7px 7px 16px rgba(164, 219, 255, 0.55);
+      transition: transform 0.3s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s ease;
+    }
+    .clay-card-blue:hover { transform: translateY(-8px) scale(1.01); }
+
+    .clay-card-pink {
+      background: linear-gradient(155deg, #f45b9b 0%, #df3a7c 100%);
+      border-radius: 30px;
+      box-shadow:
+        12px 18px 30px rgba(223, 58, 124, 0.32),
+        inset -7px -8px 16px rgba(158, 22, 78, 0.35),
+        inset 7px 7px 16px rgba(255, 184, 214, 0.55);
+      transition: transform 0.3s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s ease;
+    }
+    .clay-card-pink:hover { transform: translateY(-8px) scale(1.01); }
+
+    .clay-card-green {
+      background: linear-gradient(155deg, #95d34d 0%, #75b733 100%);
+      border-radius: 30px;
+      box-shadow:
+        12px 18px 30px rgba(117, 183, 51, 0.32),
+        inset -7px -8px 16px rgba(72, 125, 21, 0.35),
+        inset 7px 7px 16px rgba(206, 245, 155, 0.55);
+      transition: transform 0.3s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s ease;
+    }
+    .clay-card-green:hover { transform: translateY(-8px) scale(1.01); }
+
+    .clay-card-orange {
+      background: linear-gradient(155deg, #fbb83c 0%, #ea9316 100%);
+      border-radius: 30px;
+      box-shadow:
+        12px 18px 30px rgba(234, 147, 22, 0.32),
+        inset -7px -8px 16px rgba(168, 96, 5, 0.35),
+        inset 7px 7px 16px rgba(255, 228, 168, 0.6);
+      transition: transform 0.3s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s ease;
+    }
+    .clay-card-orange:hover { transform: translateY(-8px) scale(1.01); }
+
+    .clay-strip-cream {
+      background: linear-gradient(145deg, #fffdf0 0%, #fef4cc 100%);
+      border-radius: 30px;
+      box-shadow:
+        8px 14px 26px rgba(234, 179, 8, 0.16),
+        inset -6px -6px 14px rgba(234, 179, 8, 0.2),
+        inset 6px 6px 14px rgba(255, 255, 255, 0.95);
+    }
+
+    .clay-btn-pink {
+      background: linear-gradient(145deg, #f65d9c 0%, #e1397d 100%);
+      color: #ffffff;
+      border-radius: 9999px;
+      box-shadow:
+        6px 10px 20px rgba(225, 57, 125, 0.35),
+        inset -4px -5px 10px rgba(157, 23, 77, 0.35),
+        inset 4px 4px 10px rgba(255, 190, 217, 0.55);
+      transition: transform 0.2s cubic-bezier(.34,1.56,.64,1), filter 0.2s ease;
+    }
+    .clay-btn-pink:hover { transform: translateY(-3px) scale(1.03); filter: brightness(1.04); }
+    .clay-btn-pink:active { transform: translateY(1px) scale(0.98); }
+
+    .clay-btn-blue {
+      background: linear-gradient(145deg, #4db4ff 0%, #298ee0 100%);
+      color: #ffffff;
+      border-radius: 9999px;
+      box-shadow:
+        6px 10px 20px rgba(41, 142, 224, 0.35),
+        inset -4px -5px 10px rgba(17, 89, 156, 0.35),
+        inset 4px 4px 10px rgba(169, 220, 255, 0.55);
+      transition: transform 0.2s cubic-bezier(.34,1.56,.64,1);
+    }
+    .clay-btn-blue:hover { transform: translateY(-3px) scale(1.03); }
+
+    .clay-btn-white {
+      background: #ffffff;
+      color: #1e3a6d;
+      border-radius: 9999px;
+      border: 2px solid #cbd5e1;
+      box-shadow:
+        6px 10px 18px rgba(30, 58, 109, 0.12),
+        inset -4px -4px 10px rgba(148, 163, 184, 0.22),
+        inset 4px 4px 10px rgba(255, 255, 255, 0.95);
+      transition: transform 0.2s cubic-bezier(.34,1.56,.64,1);
+    }
+    .clay-btn-white:hover { transform: translateY(-3px) scale(1.03); }
+
+    .clay-input {
+      background: #f8fbff;
+      border-radius: 18px;
+      border: 2px solid #dbeafe;
+      box-shadow:
+        inset 4px 4px 10px rgba(148, 185, 226, 0.22),
+        inset -4px -4px 10px rgba(255, 255, 255, 0.95);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .clay-input:focus {
+      outline: none;
+      border-color: #38a1f3;
+      box-shadow:
+        0 0 0 4px rgba(56, 161, 243, 0.18),
+        inset 3px 3px 8px rgba(148, 185, 226, 0.15);
+    }
+
+    /* ============================================================
+       HERO BACKGROUND, DOUBLE-LAYER BLUE OUTLINE & MOVING BORDER LIGHT
+       ============================================================ */
+    .hero-sky-bg {
+      background: linear-gradient(180deg, #9ddaff 0%, #cdeeff 52%, #eef9ff 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Spotlight mengikuti kursor di Hero */
+    .hero-spotlight {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(460px circle at var(--spot-x, 70%) var(--spot-y, 40%), rgba(255, 255, 255, 0.55), transparent 65%);
+      transition: opacity 0.3s ease;
+      z-index: 1;
+    }
+
+    /* Double-Layer Blue Accent Outline + Continuous Moving Border Light */
+    .hero-visual-outer-frame {
+      position: relative;
+      padding: 8px;
+      border-radius: 38px;
+      background: rgba(56, 161, 243, 0.16);
+      border: 2px solid rgba(56, 161, 243, 0.45);
+      box-shadow: 0 22px 44px rgba(30, 58, 109, 0.18);
+      transform-style: preserve-3d;
+      transition: transform 0.22s ease-out;
+    }
+
+    .hero-visual-inner-border {
+      position: relative;
+      border-radius: 31px;
+      padding: 4px;
+      overflow: hidden;
+      background: #dbeafe;
+    }
+
+    .hero-visual-inner-border::before {
+      content: '';
+      position: absolute;
+      inset: -60%;
+      background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        #38bdf8 60deg,
+        #ec488a 120deg,
+        #facc15 180deg,
+        transparent 240deg,
+        #38bdf8 320deg,
+        transparent 360deg
+      );
+      animation: rotateBorderLight 6s linear infinite;
+      z-index: 0;
+    }
+
+    .hero-visual-content {
+      position: relative;
+      z-index: 1;
+      border-radius: 28px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+
+    @keyframes rotateBorderLight {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-9px); }
+    }
+
+    .animate-float-slow {
+      animation: floatSlow 4.5s ease-in-out infinite;
+    }
+
+    /* Hormati prefers-reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+      .hero-visual-inner-border::before,
+      .animate-float-slow {
+        animation: none !important;
+      }
+      .hero-visual-outer-frame {
+        transform: none !important;
+      }
+    }
+
+    /* ============================================================
+       LOGO WARNA-WARNI SEPERTI REFERENSI
+       ============================================================ */
+    .logo-letter {
+      display: inline-block;
+      text-shadow: 0 3px 0 rgba(255,255,255,0.9), 0 5px 10px rgba(30,58,109,0.18);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    /* ============================================================
+       TATA LETAK DASHBOARD RESPONSIF (SIDEBAR DESKTOP + BOTTOM NAV HP)
+       ============================================================ */
+    .dashboard-sidebar {
+      width: 268px;
+      position: fixed;
+      top: 16px;
+      bottom: 16px;
+      left: 16px;
+      z-index: 50;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dashboard-main {
+      margin-left: 300px;
+      padding: 24px 28px 40px 12px;
+      min-height: 100vh;
+    }
+
+    .mobile-bottom-nav {
+      display: none;
+    }
+
+    @media (max-width: 1023px) {
+      .dashboard-sidebar {
+        display: none !important;
+      }
+      .dashboard-main {
+        margin-left: 0 !important;
+        padding: 16px 16px 104px 16px !important;
+      }
+      .mobile-bottom-nav {
+        display: flex !important;
+        position: fixed;
+        bottom: 14px;
+        left: 14px;
+        right: 14px;
+        z-index: 60;
+      }
+    }
+
+    /* Scrollbar halus */
+    #tk-app-shell::-webkit-scrollbar { width: 8px; }
+    #tk-app-shell::-webkit-scrollbar-track { background: #f1f5f9; }
+    #tk-app-shell::-webkit-scrollbar-thumb { background: #93c5fd; border-radius: 999px; }
+  </style>
+</head>
+<body>
+  <!-- Root Full-Page Container -->
+  <div id="tk-app-shell">
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed top-5 right-5 z-[100000] flex flex-col gap-3 pointer-events-none"></div>
+
+    <!-- Custom Modal Container (Pengganti alert/confirm) -->
+    <div id="modal-root" class="fixed inset-0 z-[99999] hidden items-center justify-center p-4 bg-slate-900/45 backdrop-blur-sm"></div>
+
+    <!-- Main Dynamic View Root -->
+    <div id="app-content" class="min-h-screen w-full"></div>
+  </div>
+
+  <!-- Firebase Modular SDK & Aplikasi Utama -->
+  <script type="module">
+    // =========================================================================
+    // KONFIGURASI APLIKASI (WAJIB DI PALING ATAS)
+    // =========================================================================
+    const IS_PREVIEW = false; // Saat melakukan Deploy / Publish, ubah nilainya menjadi false agar aplikasi menggunakan database Firebase secara langsung tanpa data dummy
+
+    // Tempelkan konfigurasi Firebase Kalian di sini
+    const firebaseConfig = {
+      apiKey: "AIzaSyCc17y_w4rKrqQOw9oRg97Q4gdZ7OjE-js",
+  authDomain: "tkrestiaazhari.firebaseapp.com",
+  projectId: "tkrestiaazhari",
+  storageBucket: "tkrestiaazhari.firebasestorage.app",
+  messagingSenderId: "465717893133",
+  appId: "1:465717893133:web:92524786104bdd88235d44"
+    };
+
+    // =========================================================================
+    // IMPOR FIREBASE MODULAR (HANYA DIGUNAKAN SAAT IS_PREVIEW === false)
+    // =========================================================================
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    import {
+      getFirestore, collection, doc, getDoc, getDocs, addDoc, setDoc, updateDoc, deleteDoc,
+      query, where, orderBy, serverTimestamp
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+    // =========================================================================
+    // IMPLEMENTASI PWA 1-FILE: DYNAMIC SERVICE WORKER VIA BLOB
+    // =========================================================================
+    (function registerDynamicSW() {
+      try {
+        if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+          const swCode = `
+            const CACHE_NAME = 'tk-restiia-azhari-v1';
+            self.addEventListener('install', (e) => {
+              self.skipWaiting();
+            });
+            self.addEventListener('activate', (e) => {
+              e.waitUntil(clients.claim());
+            });
+            self.addEventListener('fetch', (e) => {
+              e.respondWith(fetch(e.request).catch(() => caches.match(e.request)));
+            });
+          `;
+          const blob = new Blob([swCode], { type: 'application/javascript' });
+          const swUrl = URL.createObjectURL(blob);
+          navigator.serviceWorker.register(swUrl).catch(() => {});
+        }
+      } catch (err) {
+        // Abaikan pada environment preview sandbox
+      }
+    })();
+
+    // =========================================================================
+    // INISIALISASI FIREBASE (STRICT DUAL-MODE)
+    // =========================================================================
+    let firebaseApp = null;
+    let auth = null;
+    let db = null;
+
+    if (!IS_PREVIEW) {
+      try {
+        firebaseApp = initializeApp(firebaseConfig);
+        auth = getAuth(firebaseApp);
+        db = getFirestore(firebaseApp);
+      } catch (err) {
+        console.error("Gagal inisialisasi Firebase:", err);
+      }
+    }
+
+    // =========================================================================
+    // DEFAULT PENGATURAN SEKOLAH (FALLBACK BERSIH UNTUK TAMPILAN AWAL)
+    // =========================================================================
+    const DEFAULT_PENGATURAN = {
+      namaSekolah: "TK Restiia Azhari",
+      tagline: "Tempat Pikiran Kecil Mekar",
+      telepon: "0812-3456-7890",
+      email: "halo@tkrestiiaazhari.sch.id",
+      alamat: "Jl. Ceria Nusantara No. 12, Kota Bengkulu",
+      sambutan: "Kami menghadirkan lingkungan belajar yang penuh kasih, aman, dan menyenangkan agar setiap anak menumbuhkan rasa ingin tahu, kemandirian, serta akhlak mulia sejak usia dini melalui metode bermain sambil belajar.",
+      sosmed: {
+        facebook: "https://facebook.com",
+        instagram: "https://instagram.com",
+        youtube: "https://youtube.com"
+      }
+    };
+
+    // =========================================================================
+    // STATE APLIKASI (ZERO LOCALSTORAGE, IN-MEMORY HANYA UNTUK PREVIEW)
+    // =========================================================================
+    const state = {
+      view: 'public', // 'public' | 'login' | 'ortu' | 'admin'
+      loginTab: 'ortu', // 'ortu' | 'admin'
+      publicSection: 'beranda',
+      adminMenu: 'dashboard', // 'dashboard' | 'ppdb' | 'siswa' | 'perkembangan' | 'konten' | 'pengaturan'
+      adminKontenTab: 'berita', // 'berita' | 'galeri'
+      ortuMenu: 'ringkasan', // 'ringkasan' | 'perkembangan' | 'pengumuman' | 'profil'
+      currentUser: null, // { role: 'admin' | 'ortu', data: {...} }
+      loading: false,
+
+      // Data koleksi (diisi dummy MAKS 2 item HANYA jika IS_PREVIEW === true)
+      pengaturan: { ...DEFAULT_PENGATURAN },
+      users_ortu: [],
+      perkembangan: [],
+      berita: [],
+      galeri: [],
+      pendaftaran: []
+    };
+
+    // Muat maksimal 1-2 data dummy per koleksi HANYA saat IS_PREVIEW === true
+    if (IS_PREVIEW) {
+      state.users_ortu = [
+        {
+          id: "ortu-1",
+          username: "RA202601",
+          password: "123",
+          namaSiswa: "Aisyah Humaira",
+          namaOrtu: "Bunda Rina Wijaya",
+          kelas: "TK A - Bintang",
+          waliKelas: "Ibu Sari Rahmawati, S.Pd",
+          noHp: "0812-7788-9900",
+          createdAt: "2026-07-12"
+        },
+        {
+          id: "ortu-2",
+          username: "RA202602",
+          password: "123",
+          namaSiswa: "Raffi Pratama",
+          namaOrtu: "Ayah Budi Santoso",
+          kelas: "TK B - Pelangi",
+          waliKelas: "Ibu Dewi Lestari, S.Pd",
+          noHp: "0813-4455-6677",
+          createdAt: "2026-07-14"
+        }
+      ];
+
+      state.perkembangan = [
+        {
+          id: "perk-1",
+          siswaUsername: "RA202601",
+          namaSiswa: "Aisyah Humaira",
+          tanggal: "2026-11-20",
+          kategori: "Motorik",
+          catatan: "Aisyah sangat antusias menyusun balok warna-warni setinggi 10 tingkat dan mulai mahir menggunting pola lingkaran dengan rapi.",
+          pencatat: "Ibu Sari Rahmawati, S.Pd"
+        },
+        {
+          id: "perk-2",
+          siswaUsername: "RA202601",
+          namaSiswa: "Aisyah Humaira",
+          tanggal: "2026-11-22",
+          kategori: "Sosial",
+          catatan: "Berani memimpin doa pagi di depan kelas dan berbagi alat melukis dengan teman sebangkunya.",
+          pencatat: "Ibu Sari Rahmawati, S.Pd"
+        }
+      ];
+
+      state.berita = [
+        {
+          id: "news-1",
+          judul: "Pekan Kreativitas & Outing Class 2026",
+          ringkasan: "Anak-anak TK Restiia Azhari belajar mengenal tanaman hias dan melukis gerabah bersama di taman edukasi.",
+          isi: "Kegiatan Pekan Kreativitas berlangsung meriah! Seluruh siswa Kelompok Bermain, TK A, dan TK B mengikuti sesi menanam bibit bunga, bermain estafet bola warna, dan melukis pot tanah liat untuk melatih motorik halus serta kecintaan terhadap alam.",
+          gambarUrl: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=600&q=80",
+          tanggal: "2026-11-18",
+          kategori: "Publik"
+        },
+        {
+          id: "news-2",
+          judul: "Parenting Workshop: Pendampingan Emosi Anak",
+          ringkasan: "Undangan khusus wali murid untuk diskusi interaktif bersama psikolog anak mengenai komunikasi positif di rumah.",
+          isi: "Ayah dan Bunda diundang hadir pada hari Sabtu pukul 09.00 WIB di Aula TK Restiia Azhari. Kita akan membahas cara membangun rasa percaya diri anak usia dini serta rutinitas belajar yang menyenangkan tanpa tekanan.",
+          gambarUrl: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=600&q=80",
+          tanggal: "2026-11-21",
+          kategori: "Internal"
+        }
+      ];
+
+      state.galeri = [
+        {
+          id: "gal-1",
+          judul: "Bermain Balok Warna",
+          deskripsi: "Melatih imajinasi dan kerja sama tim di kelas TK A.",
+          gambarUrl: "https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=700&q=80",
+          kategori: "Kegiatan Kelas"
+        },
+        {
+          id: "gal-2",
+          judul: "Melukis Jari Ceria",
+          deskripsi: "Eksplorasi warna menggunakan cat aman untuk anak.",
+          gambarUrl: "https://images.unsplash.com/photo-1560785496-3c9d27877182?auto=format&fit=crop&w=700&q=80",
+          kategori: "Seni & Kreativitas"
+        }
+      ];
+
+      state.pendaftaran = [
+        {
+          id: "ppdb-1",
+          jenis: "PPDB",
+          namaAnak: "Nadia Putri",
+          usia: "5 Tahun",
+          namaOrtu: "Ibu Maya Kartika",
+          noWa: "0852-1122-3344",
+          tanggalKunjungan: "2026-11-28",
+          catatan: "Ingin mendaftar untuk kelas TK A semester genap.",
+          status: "Menunggu",
+          createdAt: "2026-11-22"
+        }
+      ];
+    }
+
+    // =========================================================================
+    // HELPER UI: ESCAPE HTML, TOAST, CUSTOM MODAL & FALLBACK GAMBAR
+    // =========================================================================
+    function esc(str) {
+      if (str === null || str === undefined) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    const FALLBACK_IMG = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="#e0f2fe"/><circle cx="200" cy="135" r="55" fill="#facc15"/><circle cx="182" cy="128" r="6" fill="#1e3a6d"/><circle cx="218" cy="128" r="6" fill="#1e3a6d"/><path d="M180 150 Q200 168 220 150" stroke="#1e3a6d" stroke-width="5" fill="none" stroke-linecap="round"/><text x="200" y="235" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold" fill="#1e3a6d">TK Restiia Azhari</text></svg>`
+    );
+
+    window.handleImgError = function(el) {
+      el.onerror = null;
+      el.src = FALLBACK_IMG;
+    };
+
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toast-container');
+      const colors = {
+        success: 'bg-emerald-500 text-white',
+        error: 'bg-rose-500 text-white',
+        info: 'bg-sky-500 text-white'
+      };
+      const icon = type === 'success' ? '✨' : type === 'error' ? '⚠️' : 'ℹ️';
+      const toast = document.createElement('div');
+      toast.className = `pointer-events-auto px-5 py-3.5 rounded-2xl shadow-xl font-bold text-sm flex items-center gap-2.5 transform transition-all duration-300 translate-x-6 opacity-0 ${colors[type] || colors.info}`;
+      toast.style.boxShadow = '6px 10px 24px rgba(30,58,109,0.22), inset -3px -3px 8px rgba(0,0,0,0.15), inset 3px 3px 8px rgba(255,255,255,0.35)';
+      toast.innerHTML = `<span>${icon}</span><span>${esc(message)}</span>`;
+      container.appendChild(toast);
+      requestAnimationFrame(() => {
+        toast.classList.remove('translate-x-6', 'opacity-0');
+      });
+      setTimeout(() => {
+        toast.classList.add('translate-x-6', 'opacity-0');
+        setTimeout(() => toast.remove(), 300);
+      }, 3400);
+    }
+
+    function openModal(htmlContent) {
+      const root = document.getElementById('modal-root');
+      root.innerHTML = `
+        <div class="clay-surface w-full max-w-xl max-h-[90vh] overflow-y-auto p-6 sm:p-8 relative animate-[fadeIn_0.2s_ease]">
+          <button type="button" id="close-modal-btn" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-rose-100 text-rose-600 font-bold flex items-center justify-center hover:bg-rose-200 transition" aria-label="Tutup">✕</button>
+          ${htmlContent}
+        </div>
+      `;
+      root.classList.remove('hidden');
+      root.classList.add('flex');
+      document.getElementById('close-modal-btn').onclick = closeModal;
+      root.onclick = (e) => { if (e.target === root) closeModal(); };
+    }
+
+    function closeModal() {
+      const root = document.getElementById('modal-root');
+      root.classList.add('hidden');
+      root.classList.remove('flex');
+      root.innerHTML = '';
+    }
+
+    function confirmModal(title, message, onConfirm) {
+      openModal(`
+        <div class="text-center py-2">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-rose-100 text-rose-500 flex items-center justify-center text-3xl shadow-inner">🗑️</div>
+          <h3 class="text-2xl font-display font-bold text-clayNavy mb-2">${esc(title)}</h3>
+          <p class="text-slate-600 mb-6">${esc(message)}</p>
+          <div class="flex justify-center gap-3">
+            <button type="button" id="modal-cancel-btn" class="clay-btn-white px-6 py-2.5 font-bold text-sm">Batal</button>
+            <button type="button" id="modal-confirm-btn" class="clay-btn-pink px-6 py-2.5 font-bold text-sm">Ya, Hapus</button>
+          </div>
+        </div>
+      `);
+      document.getElementById('modal-cancel-btn').onclick = closeModal;
+      document.getElementById('modal-confirm-btn').onclick = async () => {
+        closeModal();
+        await onConfirm();
+      };
+    }
+
+    // =========================================================================
+    // LAYER DATA SERVICE (STRICT DUAL-MODE: IN-MEMORY vs FIRESTORE)
+    // =========================================================================
+    async function loadPublicData() {
+      if (IS_PREVIEW) return; // Mode Preview: tetap di memori
+      if (!db) return;
+      try {
+        // 1. Pengaturan
+        const setSnap = await getDoc(doc(db, 'pengaturan', 'profil_tk'));
+        if (setSnap.exists()) {
+          state.pengaturan = { ...DEFAULT_PENGATURAN, ...setSnap.data() };
+        }
+        // 2. Berita
+        const beritaSnap = await getDocs(query(collection(db, 'berita'), orderBy('tanggal', 'desc')));
+        state.berita = beritaSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+        // 3. Galeri
+        const galSnap = await getDocs(collection(db, 'galeri'));
+        state.galeri = galSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+      } catch (err) {
+        console.error("Gagal memuat data publik Firestore:", err);
+      }
+    }
+
+    async function loadAdminData() {
+      if (IS_PREVIEW) return;
+      if (!db) return;
+      try {
+        await loadPublicData();
+        const [ortuSnap, perkSnap, ppdbSnap] = await Promise.all([
+          getDocs(collection(db, 'users_ortu')),
+          getDocs(query(collection(db, 'perkembangan'), orderBy('tanggal', 'desc'))),
+          getDocs(collection(db, 'pendaftaran'))
+        ]);
+        state.users_ortu = ortuSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+        state.perkembangan = perkSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+        state.pendaftaran = ppdbSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+      } catch (err) {
+        console.error("Gagal memuat data admin:", err);
+        showToast("Gagal memuat sebagian data dari Firestore.", "error");
+      }
+    }
+
+    async function loadOrtuData(username) {
+      if (IS_PREVIEW) return;
+      if (!db) return;
+      try {
+        await loadPublicData();
+        const perkSnap = await getDocs(query(collection(db, 'perkembangan'), where('siswaUsername', '==', username)));
+        state.perkembangan = perkSnap.docs
+          .map(d => ({ id: d.id, ...d.data() }))
+          .sort((a, b) => (b.tanggal || '').localeCompare(a.tanggal || ''));
+      } catch (err) {
+        console.error("Gagal memuat data perkembangan anak:", err);
+      }
+    }
+
+    // CRUD Operations (Dual-Mode)
+    async function createItem(colName, payload) {
+      if (IS_PREVIEW) {
+        const newItem = { id: colName + '-' + Date.now(), ...payload };
+        state[colName].unshift(newItem);
+        return newItem;
+      }
+      const ref = await addDoc(collection(db, colName), { ...payload, createdAt: serverTimestamp() });
+      const newItem = { id: ref.id, ...payload };
+      state[colName].unshift(newItem);
+      return newItem;
+    }
+
+    async function updateItem(colName, id, payload) {
+      if (IS_PREVIEW) {
+        const idx = state[colName].findIndex(x => x.id === id);
+        if (idx !== -1) state[colName][idx] = { ...state[colName][idx], ...payload };
+        return;
+      }
+      await updateDoc(doc(db, colName, id), payload);
+      const idx = state[colName].findIndex(x => x.id === id);
+      if (idx !== -1) state[colName][idx] = { ...state[colName][idx], ...payload };
+    }
+
+    async function deleteItem(colName, id) {
+      if (IS_PREVIEW) {
+        state[colName] = state[colName].filter(x => x.id !== id);
+        return;
+      }
+      await deleteDoc(doc(db, colName, id));
+      state[colName] = state[colName].filter(x => x.id !== id);
+    }
+
+    async function savePengaturan(payload) {
+      if (IS_PREVIEW) {
+        state.pengaturan = { ...state.pengaturan, ...payload };
+        return;
+      }
+      await setDoc(doc(db, 'pengaturan', 'profil_tk'), payload, { merge: true });
+      state.pengaturan = { ...state.pengaturan, ...payload };
+    }
+
+    // =========================================================================
+    // KOMPONEN LOGO CLAYMORPHISM (SEPERTI REFERENSI)
+    // =========================================================================
+    function renderLogo(size = 'md', darkBg = false) {
+      const sunSize = size === 'sm' ? 'w-10 h-10' : 'w-14 h-14';
+      const titleClass = size === 'sm' ? 'text-lg' : 'text-xl sm:text-2xl';
+      const subClass = darkBg ? 'text-lime-100' : 'text-clayNavy/80';
+      const words = [
+        { ch: 'T', c: '#ec488a' }, { ch: 'K', c: '#f59e0b' }, { ch: ' ', c: '' },
+        { ch: 'R', c: '#22c55e' }, { ch: 'E', c: '#38a1f3' }, { ch: 'S', c: '#ec488a' },
+        { ch: 'T', c: '#f59e0b' }, { ch: 'I', c: '#8b5cf6' }, { ch: 'I', c: '#22c55e' },
+        { ch: 'A', c: '#38a1f3' }, { ch: ' ', c: '' },
+        { ch: 'A', c: '#f43f5e' }, { ch: 'Z', c: '#f59e0b' }, { ch: 'H', c: '#22c55e' },
+        { ch: 'A', c: '#38a1f3' }, { ch: 'R', c: '#ec488a' }, { ch: 'I', c: '#a855f7' }
+      ];
+      const coloredText = words.map(w =>
+        w.ch === ' ' ? `<span class="inline-block w-1.5"></span>` : `<span class="logo-letter" style="color:${w.c}">${w.ch}</span>`
+      ).join('');
+
+      return `
+        <div class="flex items-center gap-3 select-none">
+          <div class="${sunSize} flex-shrink-0 relative flex items-center justify-center">
+            <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-md">
+              <g fill="#fbbf24">
+                <circle cx="50" cy="8" r="7"/><circle cx="50" cy="92" r="7"/>
+                <circle cx="8" cy="50" r="7"/><circle cx="92" cy="50" r="7"/>
+                <circle cx="20" cy="20" r="7"/><circle cx="80" cy="80" r="7"/>
+                <circle cx="80" cy="20" r="7"/><circle cx="20" cy="80" r="7"/>
+              </g>
+              <circle cx="50" cy="50" r="33" fill="#fde047" stroke="#f59e0b" stroke-width="3"/>
+              <circle cx="38" cy="46" r="4" fill="#1e3a6d"/>
+              <circle cx="62" cy="46" r="4" fill="#1e3a6d"/>
+              <circle cx="32" cy="54" r="4.5" fill="#fb7185" opacity="0.55"/>
+              <circle cx="68" cy="54" r="4.5" fill="#fb7185" opacity="0.55"/>
+              <path d="M39 58 Q50 68 61 58" stroke="#1e3a6d" stroke-width="4" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="font-display ${titleClass} leading-none tracking-tight">${coloredText}</div>
+            <div class="text-xs font-bold ${subClass} mt-1 flex items-center gap-1">
+              <span>${esc(state.pengaturan.tagline)}</span>
+              <svg class="w-3.5 h-3.5 text-rose-400 fill-current inline-block" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // KOLEKSI IKON SVG DUOTONE BERWARNA (PENGGANTI EMOJI)
+    // =========================================================================
+    function iconSvg(name, cls = 'w-6 h-6') {
+      const icons = {
+        home: `<svg class="${cls}" viewBox="0 0 24 24" fill="none"><path d="M3 10.5L12 3l9 7.5V20a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 20v-9.5z" fill="#ec488a" fill-opacity="0.22"/><path d="M3 10.5L12 3l9 7.5M5 9.5V20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5" stroke="#ec488a" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.5 21v-6a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v6" fill="#ec488a" fill-opacity="0.45" stroke="#ec488a" stroke-width="1.8" stroke-linecap="round"/></svg>`,
+        users: `<svg class="${cls}" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8.5" r="3.5" fill="#38a1f3" fill-opacity="0.28" stroke="#38a1f3" stroke-width="2"/><path d="M2.5 19.5c0-3.2 2.9-5.5 6.5-5.5s6.5 2.3 6.5 5.5" fill="#38a1f3" fill-opacity="0.2" stroke="#38a1f3" stroke-width="2" stroke-linecap="round"/><circle cx="16.8" cy="9.5" r="2.7" fill="#60a5fa" fill-opacity="0.25" stroke="#3b82f6" stroke-width="1.8"/><path d="M16.5 14.5c2.6.2 4.8 1.9 5 4.8" stroke="#3b82f6" stroke-width="1.8" stroke-linecap="round"/></svg>`,
+        book: `<svg class="${cls}" viewBox="0 0 24 24" fill="none"><path d="M2 6.5A2.5 2.5 0 0 1 4.5 4H12v16H4.5A2.5 2.5 0 0 0 2 22V6.5z" fill="#fb923c" fill-opacity="0.25" stroke="#ea580c" stroke-width="2" stroke-linejoin="round"/><path d="M22 6.5A2.5 2.5 0 0 0 19.5 4H12v16h7.5a2.5 2.5 0 0 1 2.5 2V6.5z" fill="#fdba74" fill-opacity="0.3" stroke="#ea580c" stroke-width="2" stroke-linejoin="round"/></svg>`,
+        grad: `<svg class="${cls}" viewBox="0 0 24 24" fill="none"><path d="M12 3L2 8.5 12 14l10-5.5L12 3z" fill="#facc15" fill-opacity="0.45" stroke="#ca8a04" stroke-width="2" stroke-linejoin="round"/><path d="M6 11v5.2c0 1.4 2.7 2.8 6 2.8s6-1.4 6-2.8V11" stroke="#ca8a04" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 9.5v5.5" stroke="#ca8a04" stroke-width="2" stroke-linecap="round"/></svg>`,
+        news: `<svg class="${cls}" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="15" height="16" rx="2.5" fill="#8b5cf6" fill-opacity="0.2" stroke="#7c3aed" stroke-width="2"/><path d="M18 8h2a1.5 1.5 0 0 1 1.5 1.5V18a2 2 0 0 1-2 2H18" stroke="#7c3aed" stroke-width="2" stroke-linecap="round"/><path d="M7 9h7M7 13h7M7 16.5h4.5" stroke="#7c3aed" stroke-width="2" stroke-linecap="round"/></svg>`,
+        gallery: `<svg class="${cls}" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="3" fill="#4ade80" fill-opacity="0.22" stroke="#16a34a" stroke-width="2"/><circle cx="8.5" cy="9.5" r="1.8" fill="#facc15" stroke="#16a34a" stroke-width="1.5"/><path d="M21 15.5l-4.5-4.5-5.5 5.5-2.5-2.5L3 19" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+        heart: `<svg class="${cls}" viewBox="0 0 24 24" fill="none"><path d="M12 20.5s-7.5-4.7-9.2-9.2C1.6 8 3.6 4.5 7.2 4.5c2 0 3.7 1 4.8 2.6 1.1-1.6 2.8-2.6 4.8-2.6 3.6 0 5.6 3.5 4.4 6.8-1.7 4.5-9.2 9.2-9.2 9.2z" fill="#fb923c" fill-opacity="0.35" stroke="#f97316" stroke-width="2" stroke-linejoin="round"/></svg>`,
+        mail: `<svg class="${cls}" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2.5" fill="#c084fc" fill-opacity="0.25" stroke="#9333ea" stroke-width="2"/><path d="M4 7l8 6 8-6" stroke="#9333ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+        phone: `<svg class="${cls}" viewBox="0 0 24 24" fill="none"><path d="M5.5 4h3.2l1.5 4-2 1.5a11 11 0 0 0 6.3 6.3l1.5-2 4 1.5v3.2a1.5 1.5 0 0 1-1.6 1.5A15.5 15.5 0 0 1 4 5.6 1.5 1.5 0 0 1 5.5 4z" fill="currentColor" fill-opacity="0.18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+        lock: `<svg class="${cls}" viewBox="0 0 24 24" fill="none"><rect x="5" y="10" width="14" height="10" rx="2.5" fill="currentColor" fill-opacity="0.2" stroke="currentColor" stroke-width="2"/><path d="M8 10V7.5a4 4 0 0 1 8 0V10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+        pin: `<svg class="${cls}" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.2 7-11.5A7 7 0 1 0 5 9.5C5 14.8 12 21 12 21z" fill="currentColor" fill-opacity="0.2" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9.5" r="2.5" stroke="currentColor" stroke-width="2"/></svg>`,
+        puzzle: `<svg class="${cls}" viewBox="0 0 24 24" fill="none"><path d="M19.5 13.5a2 2 0 1 1 0-4V6a1.5 1.5 0 0 0-1.5-1.5h-3.5a2 2 0 1 0-4 0H7A1.5 1.5 0 0 0 5.5 6v3.5a2 2 0 1 1 0 4V17A1.5 1.5 0 0 0 7 18.5h3.5a2 2 0 1 1 4 0H18a1.5 1.5 0 0 0 1.5-1.5v-3.5z" fill="currentColor" fill-opacity="0.22" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>`,
+        heartWhite: `<svg class="${cls}" viewBox="0 0 24 24" fill="none"><path d="M12 20.5s-7.5-4.7-9.2-9.2C1.6 8 3.6 4.5 7.2 4.5c2 0 3.7 1 4.8 2.6 1.1-1.6 2.8-2.6 4.8-2.6 3.6 0 5.6 3.5 4.4 6.8-1.7 4.5-9.2 9.2-9.2 9.2z" fill="currentColor" fill-opacity="0.22" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>`,
+        bookWhite: `<svg class="${cls}" viewBox="0 0 24 24" fill="none"><path d="M2 6.5A2.5 2.5 0 0 1 4.5 4H12v16H4.5A2.5 2.5 0 0 0 2 22V6.5zm20 0A2.5 2.5 0 0 0 19.5 4H12v16h7.5a2.5 2.5 0 0 1 2.5 2V6.5z" fill="currentColor" fill-opacity="0.22" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>`,
+        shield: `<svg class="${cls}" viewBox="0 0 24 24" fill="none"><path d="M12 3l7.5 3v5.8c0 4.6-3.1 8.5-7.5 9.7-4.4-1.2-7.5-5.1-7.5-9.7V6L12 3z" fill="currentColor" fill-opacity="0.22" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+        star: `<svg class="${cls}" viewBox="0 0 24 24" fill="none"><path d="M12 3.5l2.6 5.3 5.9.8-4.3 4.2 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.2 5.9-.8L12 3.5z" fill="currentColor" fill-opacity="0.25" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>`,
+        teacher: `<svg class="${cls}" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="7.5" r="3.5" fill="currentColor" fill-opacity="0.22" stroke="currentColor" stroke-width="2"/><path d="M5 19.5c0-3.3 3.1-5.5 7-5.5s7 2.2 7 5.5" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+        chart: `<svg class="${cls}" viewBox="0 0 24 24" fill="none"><path d="M4 19h16M7 16v-5M12 16V7M17 16v-8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>`,
+        clipboard: `<svg class="${cls}" viewBox="0 0 24 24" fill="none"><rect x="5" y="4" width="14" height="17" rx="2.5" fill="currentColor" fill-opacity="0.18" stroke="currentColor" stroke-width="2"/><path d="M9 4.5h6M9 10h6M9 14h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+        trend: `<svg class="${cls}" viewBox="0 0 24 24" fill="none"><path d="M4 17l5.5-5.5 4 4L20 9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 9h5v5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+        megaphone: `<svg class="${cls}" viewBox="0 0 24 24" fill="none"><path d="M18 5v14l-9-4H5a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h4l9-4z" fill="currentColor" fill-opacity="0.2" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>`,
+        settings: `<svg class="${cls}" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.6 1.6 0 0 0-1-1.5 1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.6 1.6 0 0 0 1.5-1 1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3h.1a1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 1 1.5 1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8v.1a1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+        user: `<svg class="${cls}" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" fill="currentColor" fill-opacity="0.2" stroke="currentColor" stroke-width="2"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+        instagram: `<svg class="${cls}" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>`,
+        youtube: `<svg class="${cls}" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5" stroke="currentColor" stroke-width="2"/><path d="M10 9.5l5 2.5-5 2.5v-5z" fill="currentColor"/></svg>`
+      };
+      return icons[name] || '';
+    }
+
+    // =========================================================================
+    // RENDER BANNER PREVIEW (HANYA MUNCUL JIKA IS_PREVIEW === true)
+    // =========================================================================
+    function renderPreviewBanner() {
+      if (!IS_PREVIEW) return '';
+      return `
+        <div class="bg-amber-400/95 text-amber-950 text-xs sm:text-sm font-extrabold py-2 px-4 text-center flex flex-wrap items-center justify-center gap-2 shadow-sm">
+          <span class="px-2.5 py-0.5 rounded-full bg-white/80 text-amber-900">🧪 MODE PREVIEW</span>
+          <span>Aplikasi berjalan menggunakan data uji coba di memori (tanpa koneksi Firebase).</span>
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // HALAMAN 1: LANDING PAGE PUBLIK (PRE-LOGIN) BERGAYA CLAYMORPHISM
+    // =========================================================================
+    function renderPublicPage() {
+      const p = state.pengaturan;
+      const publicBerita = state.berita.filter(b => b.kategori === 'Publik' || !b.kategori).slice(0, 3);
+      const galeriList = state.galeri;
+
+      return `
+        ${renderPreviewBanner()}
+        <div class="w-full">
+          <!-- ==================== HERO & HEADER SKY AREA ==================== -->
+          <section id="sec-beranda" class="hero-sky-bg pb-16 sm:pb-24">
+            <div id="hero-spotlight" class="hero-spotlight"></div>
+
+            <!-- Awan Dekoratif Parallax -->
+            <div data-parallax="18" class="pointer-events-none absolute top-28 left-8 opacity-80 hidden md:block">
+              <svg width="110" height="55" viewBox="0 0 110 55"><path d="M22 48 H88 A18 18 0 0 0 88 16 A24 24 0 0 0 42 12 A20 20 0 0 0 22 48 Z" fill="#ffffff"/></svg>
+            </div>
+            <div data-parallax="-14" class="pointer-events-none absolute top-40 right-1/3 opacity-75 hidden lg:block">
+              <svg width="95" height="48" viewBox="0 0 110 55"><path d="M22 48 H88 A18 18 0 0 0 88 16 A24 24 0 0 0 42 12 A20 20 0 0 0 22 48 Z" fill="#ffffff"/></svg>
+            </div>
+
+            <!-- Pelangi Ceria Kanan Hero -->
+            <svg class="pointer-events-none absolute -right-24 top-36 w-[520px] h-[360px] opacity-85 hidden md:block" viewBox="0 0 400 280">
+              <path d="M40 280 A170 170 0 0 1 380 280" fill="none" stroke="#fb7185" stroke-width="20"/>
+              <path d="M60 280 A150 150 0 0 1 360 280" fill="none" stroke="#fb923c" stroke-width="20"/>
+              <path d="M80 280 A130 130 0 0 1 340 280" fill="none" stroke="#facc15" stroke-width="20"/>
+              <path d="M100 280 A110 110 0 0 1 320 280" fill="none" stroke="#4ade80" stroke-width="20"/>
+              <path d="M120 280 A90 90 0 0 1 300 280" fill="none" stroke="#38bdf8" stroke-width="20"/>
+              <path d="M140 280 A70 70 0 0 1 280 280" fill="none" stroke="#a78bfa" stroke-width="20"/>
+            </svg>
+
+            <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-5">
+              <!-- Top Bar: Logo, Telepon, CTA -->
+              <header class="flex flex-wrap items-center justify-between gap-4 mb-5">
+                <a href="#sec-beranda" class="focus:outline-none">${renderLogo('md', false)}</a>
+
+                <div class="flex flex-wrap items-center gap-3 sm:gap-5">
+                  <div class="hidden sm:flex items-center gap-2.5 bg-white/65 backdrop-blur-md px-4 py-2 rounded-full shadow-sm border border-white/80">
+                    <span class="w-8 h-8 rounded-full bg-sky-100 text-clayNavy flex items-center justify-center">${iconSvg('phone', 'w-4 h-4')}</span>
+                    <div class="leading-tight">
+                      <div class="text-[11px] font-bold text-slate-500">Hubungi Kami</div>
+                      <div class="text-sm font-extrabold text-clayNavy">${esc(p.telepon)}</div>
+                    </div>
+                  </div>
+
+                  <button type="button" data-action="open-ppdb" data-jenis="Kunjungan" class="clay-btn-pink px-5 py-2.5 text-sm font-bold flex items-center gap-1.5">
+                    <span>Jadwalkan Kunjungan</span>
+                  </button>
+
+                  <button type="button" data-action="go-login" class="clay-btn-blue px-5 py-2.5 text-sm font-bold flex items-center gap-1.5">
+                    ${iconSvg('lock', 'w-4 h-4')}
+                    <span>Masuk Portal</span>
+                  </button>
+                </div>
+              </header>
+
+              <!-- Floating Clay Pill Navbar (Ikon SVG Duotone Berwarna) -->
+              <nav class="clay-pill-nav px-3 sm:px-6 py-2.5 mb-10 sm:mb-14">
+                <div class="flex items-center justify-between lg:justify-around overflow-x-auto gap-2 sm:gap-4 no-scrollbar">
+                  ${[
+                    { id: 'sec-beranda', icon: 'home', label: 'BERANDA', active: true },
+                    { id: 'sec-tentang', icon: 'users', label: 'TENTANG KAMI' },
+                    { id: 'sec-program', icon: 'book', label: 'PROGRAM' },
+                    { id: 'sec-kelas', icon: 'grad', label: 'KELAS' },
+                    { id: 'sec-berita', icon: 'news', label: 'BERITA' },
+                    { id: 'sec-galeri', icon: 'gallery', label: 'GALERI' },
+                    { id: 'action-login-ortu', icon: 'heart', label: 'PORTAL ORTU' },
+                    { id: 'sec-kontak', icon: 'mail', label: 'KONTAK' }
+                  ].map(nav => `
+                    <button type="button"
+                      ${nav.id === 'action-login-ortu' ? 'data-action="go-login-ortu"' : `data-scroll="${nav.id}"`}
+                      class="flex flex-col items-center gap-1 px-3 py-1.5 rounded-2xl min-w-[72px] hover:bg-sky-50/80 transition group ${nav.active ? 'border-b-4 border-clayPink' : ''}">
+                      <span class="group-hover:scale-110 transition-transform flex items-center justify-center">${iconSvg(nav.icon, 'w-6 h-6')}</span>
+                      <span class="text-[10px] sm:text-[11px] font-extrabold tracking-wide text-clayNavy whitespace-nowrap">${nav.label}</span>
+                    </button>
+                  `).join('')}
+                </div>
+              </nav>
+
+              <!-- SPLIT HERO LAYOUT (Teks Kiri + Tilted 3D Clay Visual Kanan) -->
+              <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center pb-8">
+                <!-- Sisi Kiri: Headline & CTA -->
+                <div class="lg:col-span-6 space-y-5 text-center lg:text-left">
+                  <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/85 shadow-sm border border-white text-xs font-extrabold text-clayBlue">
+                    <span>🌈</span>
+                    <span>Penerimaan Peserta Didik Baru 2026/2027 Dibuka!</span>
+                  </div>
+
+                  <h1 class="text-4xl sm:text-5xl lg:text-[54px] font-display font-bold leading-[1.12] text-clayNavy">
+                    Membimbing Hari Ini,<br />
+                    <span class="text-clayPink">Menginspirasi</span> Esok Hari
+                  </h1>
+
+                  <p class="text-base sm:text-lg font-bold text-slate-700 max-w-lg mx-auto lg:mx-0">
+                    Tempat terbaik bagi buah hati Anda untuk
+                    <span class="text-clayBlue">belajar</span>,
+                    <span class="text-clayGreen">tumbuh</span>, dan
+                    <span class="text-clayOrange">bersinar</span>.
+                  </p>
+
+                  <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                    <button type="button" data-action="open-ppdb" data-jenis="PPDB" class="clay-btn-pink px-7 py-3.5 text-base font-bold flex items-center gap-2">
+                      <span>Daftar Sekarang</span>
+                      <span>❯</span>
+                    </button>
+                    <button type="button" data-scroll="sec-tentang" class="clay-btn-white px-7 py-3.5 text-base font-bold flex items-center gap-2">
+                      <span>Pelajari Lebih</span>
+                      <span>❯</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Sisi Kanan: Large Tilted Rounded Visual + Double-Layer Blue Outline + Moving Light + Floating Info Cards -->
+                <div class="lg:col-span-6 flex justify-center relative">
+                  <div id="hero-tilt-card" class="hero-visual-outer-frame w-full max-w-md lg:max-w-lg" style="transform: perspective(1000px) rotateY(-6deg) rotateX(3deg);">
+                    <div class="hero-visual-inner-border">
+                      <div class="hero-visual-content aspect-[4/3] relative">
+                        <img
+                          src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=900&q=85"
+                          alt="Guru dan anak-anak bermain balok di TK Restiia Azhari"
+                          onerror="handleImgError(this)"
+                          class="w-full h-full object-cover"
+                        />
+                        <div class="absolute inset-0 bg-gradient-to-t from-clayNavy/40 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
+                          <span class="px-3 py-1 rounded-full bg-white/25 backdrop-blur-md text-xs font-extrabold border border-white/40">🎨 Belajar Sambil Bermain</span>
+                          <span class="px-3 py-1 rounded-full bg-clayPink/90 text-xs font-extrabold shadow">⭐ Akreditasi A</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Floating Info Card 1 -->
+                    <div data-parallax="-12" class="animate-float-slow clay-surface px-4 py-3 absolute -bottom-5 -left-4 sm:-left-8 flex items-center gap-3 max-w-[210px]">
+                      <div class="w-10 h-10 rounded-2xl bg-amber-100 text-amber-500 flex items-center justify-center text-xl shadow-inner">🏆</div>
+                      <div>
+                        <div class="text-xs font-extrabold text-clayNavy leading-tight">Guru Bersertifikat</div>
+                        <div class="text-[11px] font-bold text-slate-500">Ramah & Sabar</div>
+                      </div>
+                    </div>
+
+                    <!-- Floating Info Card 2 -->
+                    <div data-parallax="14" class="animate-float-slow clay-surface px-4 py-2.5 absolute -top-5 -right-3 sm:-right-6 flex items-center gap-2.5" style="animation-delay:1.2s;">
+                      <div class="w-9 h-9 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-lg shadow-inner">🛡️</div>
+                      <div>
+                        <div class="text-xs font-extrabold text-clayNavy leading-tight">100% Aman</div>
+                        <div class="text-[10px] font-bold text-slate-500">Area Terpantau</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Scalloped Cloud Wave Divider (Seperti Referensi) -->
+            <div class="absolute bottom-0 left-0 right-0 leading-none overflow-hidden">
+              <svg viewBox="0 0 1440 70" preserveAspectRatio="none" class="w-full h-10 sm:h-14 fill-white">
+                <path d="M0,45 Q30,10 60,45 T120,45 T180,45 T240,45 T300,45 T360,45 T420,45 T480,45 T540,45 T600,45 T660,45 T720,45 T780,45 T840,45 T900,45 T960,45 T1020,45 T1080,45 T1140,45 T1200,45 T1260,45 T1320,45 T1380,45 T1440,45 L1440,70 L0,70 Z"/>
+              </svg>
+            </div>
+          </section>
+
+          <!-- ==================== 4 KARTU PILAR CLAY WARNA-WARNI ==================== -->
+          <section id="sec-program" class="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              ${[
+                {
+                  cls: 'clay-card-blue',
+                  icon: 'puzzle',
+                  title: 'Bermain & Belajar',
+                  img: 'https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=400&q=80',
+                  desc: 'Aktivitas menyenangkan yang menumbuhkan rasa ingin tahu dan kreativitas anak.',
+                  detail: 'Kami memadukan permainan edukatif, balok konstruksi, dan eksperimen sains sederhana agar anak mencintai proses belajar.'
+                },
+                {
+                  cls: 'clay-card-pink',
+                  icon: 'heartWhite',
+                  title: 'Tumbuh Bersama',
+                  img: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=400&q=80',
+                  desc: 'Membangun kepercayaan diri, persahabatan, dan keterampilan sosial setiap hari.',
+                  detail: 'Melalui kegiatan kelompok, bercerita, dan pentas seni, anak belajar bekerja sama, berempati, dan berani tampil.'
+                },
+                {
+                  cls: 'clay-card-green',
+                  icon: 'bookWhite',
+                  title: 'Langkah Cerdas',
+                  img: 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=400&q=80',
+                  desc: 'Program pendidikan usia dini terstruktur untuk masa depan yang gemilang.',
+                  detail: 'Pengenalan literasi awal, numerasi ceria, bahasa Inggris dasar, dan pembiasaan karakter islami/akhlak mulia.'
+                },
+                {
+                  cls: 'clay-card-orange',
+                  icon: 'shield',
+                  title: 'Aman & Peduli',
+                  img: 'https://images.unsplash.com/photo-1560785496-3c9d27877182?auto=format&fit=crop&w=400&q=80',
+                  desc: 'Lingkungan yang aman, penuh kasih sayang, dan ramah bagi setiap anak.',
+                  detail: 'Ruang kelas bersih, alat permainan berstandar aman, dan pendampingan penuh kehangatan oleh para pendidik.'
+                }
+              ].map((card, idx) => `
+                <div class="${card.cls} p-6 text-white flex flex-col items-center text-center">
+                  <div class="flex items-center gap-2 font-display font-bold text-xl mb-4">
+                    <span class="flex items-center">${iconSvg(card.icon, 'w-6 h-6 text-white')}</span>
+                    <h3>${card.title}</h3>
+                  </div>
+                  <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-white/80 shadow-lg mb-4 bg-white">
+                    <img src="${card.img}" alt="${card.title}" onerror="handleImgError(this)" class="w-full h-full object-cover"/>
+                  </div>
+                  <p class="text-sm font-semibold text-white/95 leading-relaxed mb-6 flex-1">${card.desc}</p>
+                  <button type="button" data-pilar="${idx}" class="bg-white text-clayNavy font-extrabold text-xs px-5 py-2.5 rounded-full shadow-md hover:scale-105 transition flex items-center gap-1.5">
+                    <span>Selengkapnya</span>
+                    <span>❯</span>
+                  </button>
+                </div>
+              `).join('')}
+            </div>
+          </section>
+
+          <!-- ==================== STRIP KENAPA MEMILIH KAMI ==================== -->
+          <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-14">
+            <div class="clay-strip-cream px-6 sm:px-10 py-6 grid grid-cols-1 md:grid-cols-5 gap-6 items-center">
+              <div class="text-center md:text-left">
+                <div class="font-display font-bold text-2xl text-clayNavy leading-tight">
+                  Kenapa<br/><span class="text-clayPink">Memilih Kami</span>
+                </div>
+              </div>
+              ${[
+                { icon: 'teacher', bg: 'bg-lime-100 text-lime-700', title: 'Guru Berpengalaman', badge: 'Berdedikasi' },
+                { icon: 'shield', bg: 'bg-purple-100 text-purple-700', title: 'Lingkungan Aman', badge: 'Nyaman & Bersih' },
+                { icon: 'star', bg: 'bg-amber-100 text-amber-600', title: 'Belajar Kreatif', badge: 'Kurikulum Merdeka' },
+                { icon: 'users', bg: 'bg-sky-100 text-sky-600', title: 'Dipercaya Ortu', badge: 'Komunikasi Aktif' }
+              ].map(item => `
+                <div class="flex flex-col items-center text-center gap-1.5">
+                  <div class="flex items-center gap-2">
+                    <span class="w-10 h-10 rounded-2xl ${item.bg} flex items-center justify-center shadow-inner">${iconSvg(item.icon, 'w-5 h-5')}</span>
+                    <span class="text-xs font-extrabold text-clayNavy/70">${item.badge}</span>
+                  </div>
+                  <div class="text-sm font-extrabold text-clayNavy">${item.title}</div>
+                </div>
+              `).join('')}
+            </div>
+          </section>
+
+          <!-- ==================== TENTANG KAMI & BERITA TERBARU ==================== -->
+          <section id="sec-tentang" class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              <!-- Kiri: Selamat Datang / Tentang Kami -->
+              <div class="lg:col-span-7">
+                <h2 class="text-2xl sm:text-3xl font-display font-bold text-clayNavy mb-5 flex items-center gap-2">
+                  <span>Selamat Datang di ${esc(p.namaSekolah)}!</span>
+                  <span class="text-clayPink">💗</span>
+                </h2>
+                <div class="clay-surface p-5 sm:p-6 grid grid-cols-1 sm:grid-cols-12 gap-5 items-center">
+                  <div class="sm:col-span-6 rounded-3xl overflow-hidden shadow-md aspect-[4/3] bg-sky-50">
+                    <img
+                      src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=650&q=80"
+                      alt="Anak-anak TK Restiia Azhari tersenyum"
+                      onerror="handleImgError(this)"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div class="sm:col-span-6 space-y-4">
+                    <p class="text-sm text-slate-600 font-semibold leading-relaxed">${esc(p.sambutan)}</p>
+                    <div class="flex flex-wrap gap-2 text-xs font-extrabold">
+                      <span class="px-3 py-1 rounded-full bg-sky-100 text-sky-700">🌱 Akhlak Mulia</span>
+                      <span class="px-3 py-1 rounded-full bg-pink-100 text-pink-700">🎨 Kreatif</span>
+                      <span class="px-3 py-1 rounded-full bg-lime-100 text-lime-700">😊 Mandiri</span>
+                    </div>
+                    <button type="button" data-action="open-visi" class="clay-btn-blue px-6 py-2.5 text-sm font-bold inline-flex items-center gap-2">
+                      <span>Visi & Misi Kami</span>
+                      <span>❯</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Kanan: Berita Terbaru -->
+              <div id="sec-berita" class="lg:col-span-5">
+                <div class="flex items-center justify-between mb-5">
+                  <h2 class="text-2xl sm:text-3xl font-display font-bold text-clayNavy">Berita Terbaru</h2>
+                  <span class="text-2xl">☁️</span>
+                </div>
+
+                <div class="space-y-4">
+                  ${publicBerita.length === 0 ? `
+                    <div class="clay-surface p-6 text-center text-slate-500 text-sm font-bold">
+                      Belum ada berita terbaru yang dipublikasikan.
+                    </div>
+                  ` : publicBerita.map(b => `
+                    <div class="clay-strip-cream p-3.5 flex gap-3.5 items-center hover:scale-[1.01] transition cursor-pointer" data-read-berita="${esc(b.id)}">
+                      <img src="${esc(b.gambarUrl || FALLBACK_IMG)}" alt="${esc(b.judul)}" onerror="handleImgError(this)" class="w-24 h-20 rounded-2xl object-cover flex-shrink-0 shadow-sm bg-white"/>
+                      <div class="min-w-0">
+                        <div class="text-[11px] font-extrabold text-amber-600 mb-0.5">${esc(b.tanggal || '')}</div>
+                        <h3 class="font-display font-bold text-sm sm:text-base text-clayNavy truncate">${esc(b.judul)}</h3>
+                        <p class="text-xs text-slate-600 line-clamp-2 font-semibold mt-0.5">${esc(b.ringkasan)}</p>
+                        <span class="inline-block mt-1 text-xs font-extrabold text-clayBlue">Baca Selengkapnya →</span>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ==================== PROGRAM & KELAS ==================== -->
+          <section id="sec-kelas" class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+            <div class="text-center mb-8">
+              <span class="px-4 py-1 rounded-full bg-sky-100 text-clayBlue text-xs font-extrabold">KURIKULUM RAMAH ANAK</span>
+              <h2 class="text-3xl font-display font-bold text-clayNavy mt-2">Pilihan Kelas di TK Restiia Azhari</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              ${[
+                { badge: 'Usia 3 - 4 Tahun', title: 'Kelompok Bermain (KB)', color: 'from-sky-400 to-blue-500', items: ['Stimulasi motorik halus & kasar', 'Sosialisasi & bermain ceria', 'Pengenalan warna, bentuk & lagu'] },
+                { badge: 'Usia 4 - 5 Tahun', title: 'Kelas TK A', color: 'from-pink-400 to-rose-500', items: ['Pra-membaca & berhitung seru', 'Pembiasaan ibadah & sopan santun', 'Kreativitas seni & bercerita'] },
+                { badge: 'Usia 5 - 6 Tahun', title: 'Kelas TK B', color: 'from-lime-500 to-emerald-500', items: ['Kesiapan masuk Sekolah Dasar', 'Logika, kemandirian & percaya diri', 'Proyek kolaborasi & outing class'] }
+              ].map(k => `
+                <div class="clay-surface p-6 flex flex-col justify-between">
+                  <div>
+                    <span class="inline-block px-3.5 py-1 rounded-full text-xs font-extrabold text-white bg-gradient-to-r ${k.color} shadow-sm mb-3">${k.badge}</span>
+                    <h3 class="text-xl font-display font-bold text-clayNavy mb-3">${k.title}</h3>
+                    <ul class="space-y-2 text-sm text-slate-600 font-semibold mb-6">
+                      ${k.items.map(it => `<li class="flex items-start gap-2"><span class="text-emerald-500">✔</span><span>${it}</span></li>`).join('')}
+                    </ul>
+                  </div>
+                  <button type="button" data-action="open-ppdb" data-jenis="PPDB" class="clay-btn-white w-full py-2.5 text-sm font-bold">Daftar Kelas Ini ❯</button>
+                </div>
+              `).join('')}
+            </div>
+          </section>
+
+          <!-- ==================== GALERI & ANAK BAHAGIA, MASA DEPAN CERAH ==================== -->
+          <section id="sec-galeri" class="relative pt-6 overflow-hidden">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+              <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center pb-12">
+                <div class="md:col-span-4 text-center md:text-left space-y-4">
+                  <div class="text-3xl">🦋</div>
+                  <h2 class="text-3xl sm:text-4xl font-display font-bold leading-tight text-clayNavy">
+                    Anak Bahagia,<br/>
+                    <span class="text-clayPink">Masa Depan Cerah!</span>
+                  </h2>
+                  <p class="text-sm text-slate-600 font-semibold">Lihat keceriaan aktivitas belajar, bermain, dan berkarya anak-anak kami.</p>
+                  <button type="button" data-action="open-galeri-all" class="clay-btn-pink px-6 py-3 text-sm font-bold inline-flex items-center gap-2">
+                    <span>Lihat Galeri Foto</span>
+                    <span>❯</span>
+                  </button>
+                </div>
+
+                <!-- Lingkaran Karangan Bunga Hijau (Persis Referensi) -->
+                <div class="md:col-span-4 flex justify-center">
+                  <div class="relative w-60 h-60 sm:w-64 sm:h-64 rounded-full p-3 bg-gradient-to-br from-lime-400 via-green-500 to-emerald-600 shadow-2xl">
+                    <div class="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-inner bg-amber-50">
+                      <img
+                        src="${esc(galeriList[0]?.gambarUrl || 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=500&q=80')}"
+                        alt="Keceriaan anak TK Restiia Azhari"
+                        onerror="handleImgError(this)"
+                        class="w-full h-full object-cover"
+                      />
+                    </div>
+                    <span class="absolute -top-2 left-8 text-2xl">🌼</span>
+                    <span class="absolute bottom-3 -right-1 text-2xl">🌸</span>
+                    <span class="absolute top-1/2 -left-3 text-xl">🍀</span>
+                  </div>
+                </div>
+
+                <!-- Preview Grid Galeri Mini -->
+                <div class="md:col-span-4">
+                  ${galeriList.length === 0 ? `
+                    <div class="clay-surface p-5 text-center text-sm font-bold text-slate-500">Belum ada foto galeri.</div>
+                  ` : `
+                    <div class="grid grid-cols-2 gap-3">
+                      ${galeriList.slice(0, 4).map(g => `
+                        <div class="clay-surface p-2 cursor-pointer hover:scale-105 transition" data-view-galeri="${esc(g.id)}">
+                          <img src="${esc(g.gambarUrl)}" alt="${esc(g.judul)}" onerror="handleImgError(this)" class="w-full h-24 object-cover rounded-2xl"/>
+                          <div class="text-[11px] font-extrabold text-clayNavy mt-1.5 px-1 truncate">${esc(g.judul)}</div>
+                        </div>
+                      `).join('')}
+                    </div>
+                  `}
+                </div>
+              </div>
+            </div>
+
+            <!-- Bukit Hijau Taman & Footer (Seperti Referensi) -->
+            <div class="relative w-full leading-none -mb-1">
+              <svg viewBox="0 0 1440 120" preserveAspectRatio="none" class="w-full h-16 sm:h-24">
+                <path d="M0,70 Q360,10 720,65 T1440,50 L1440,120 L0,120 Z" fill="#82c341"/>
+                <path d="M0,95 Q420,40 860,88 T1440,72 L1440,120 L0,120 Z" fill="#68a629"/>
+              </svg>
+            </div>
+
+            <footer id="sec-kontak" class="bg-[#68a629] text-white pt-6 pb-10">
+              <div class="max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                <div class="md:col-span-4 space-y-3">
+                  ${renderLogo('sm', true)}
+                  <p class="text-xs text-lime-100 font-semibold leading-relaxed pt-1">
+                    Mendampingi langkah awal si kecil dengan cinta, kreativitas, dan nilai-nilai kebaikan.
+                  </p>
+                </div>
+
+                <div class="md:col-span-3">
+                  <h4 class="font-display font-bold text-lg mb-3">Tautan Cepat</h4>
+                  <ul class="space-y-1.5 text-sm text-lime-100 font-bold">
+                    <li><button type="button" data-scroll="sec-tentang" class="hover:text-white">• Tentang Kami</button></li>
+                    <li><button type="button" data-scroll="sec-program" class="hover:text-white">• Program Unggulan</button></li>
+                    <li><button type="button" data-scroll="sec-galeri" class="hover:text-white">• Galeri Kegiatan</button></li>
+                    <li><button type="button" data-action="go-login" class="hover:text-white">• Portal Ortu & Admin</button></li>
+                  </ul>
+                </div>
+
+                <div class="md:col-span-3">
+                  <h4 class="font-display font-bold text-lg mb-3">Hubungi Kami</h4>
+                  <ul class="space-y-2 text-sm text-lime-100 font-semibold">
+                    <li class="flex items-center gap-2">${iconSvg('phone', 'w-4 h-4 flex-shrink-0')}<span>${esc(p.telepon)}</span></li>
+                    <li class="flex items-center gap-2">${iconSvg('mail', 'w-4 h-4 flex-shrink-0 text-lime-100')}<span>${esc(p.email)}</span></li>
+                    <li class="flex items-start gap-2">${iconSvg('pin', 'w-4 h-4 mt-0.5 flex-shrink-0')}<span>${esc(p.alamat)}</span></li>
+                  </ul>
+                </div>
+
+                <div class="md:col-span-2">
+                  <h4 class="font-display font-bold text-lg mb-3">Ikuti Kami</h4>
+                  <div class="flex gap-2.5">
+                    <a href="${esc(p.sosmed?.facebook || '#')}" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center shadow-md hover:scale-110 transition font-bold">f</a>
+                    <a href="${esc(p.sosmed?.instagram || '#')}" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-400 via-pink-500 to-purple-600 flex items-center justify-center shadow-md hover:scale-110 transition">${iconSvg('instagram', 'w-5 h-5 text-white')}</a>
+                    <a href="${esc(p.sosmed?.youtube || '#')}" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center shadow-md hover:scale-110 transition">${iconSvg('youtube', 'w-5 h-5 text-white')}</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="max-w-6xl mx-auto px-4 sm:px-6 mt-8 pt-5 border-t border-white/20 flex flex-wrap justify-between items-center text-xs text-lime-100 font-bold gap-2">
+                <span>© 2026 ${esc(p.namaSekolah)}. Hak Cipta Dilindungi.</span>
+                <span>Dibuat dengan 🤍 untuk Pendidikan Anak Usia Dini</span>
+              </div>
+            </footer>
+          </section>
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // HALAMAN 2: GERBANG LOGIN HYBRID (ORANG TUA & ADMIN)
+    // =========================================================================
+    function renderLoginPage() {
+      const isOrtu = state.loginTab === 'ortu';
+      return `
+        ${renderPreviewBanner()}
+        <div class="min-h-screen hero-sky-bg flex flex-col items-center justify-center p-4 sm:p-6">
+          <div class="w-full max-w-md relative z-10">
+            <div class="flex justify-center mb-6">
+              <button type="button" data-action="go-public" class="focus:outline-none">
+                ${renderLogo('md', false)}
+              </button>
+            </div>
+
+            <div class="clay-surface p-6 sm:p-8">
+              <!-- Switch Tab Hybrid -->
+              <div class="grid grid-cols-2 gap-2 p-1.5 rounded-full bg-sky-100/80 mb-6">
+                <button type="button" data-login-tab="ortu" class="py-2.5 rounded-full text-sm font-extrabold transition ${isOrtu ? 'bg-white text-clayPink shadow-md' : 'text-clayNavy/70'}">
+                  💛 Portal Orang Tua
+                </button>
+                <button type="button" data-login-tab="admin" class="py-2.5 rounded-full text-sm font-extrabold transition ${!isOrtu ? 'bg-white text-clayBlue shadow-md' : 'text-clayNavy/70'}">
+                  🛡️ Login Admin
+                </button>
+              </div>
+
+              <h2 class="text-2xl font-display font-bold text-clayNavy text-center mb-1">
+                ${isOrtu ? 'Masuk Portal Orang Tua' : 'Masuk Dashboard Admin'}
+              </h2>
+              <p class="text-xs text-slate-500 font-bold text-center mb-6">
+                ${isOrtu ? 'Gunakan ID Siswa & Password yang diberikan oleh pihak sekolah.' : 'Khusus Kepala Sekolah & Staf Admin terdaftar.'}
+              </p>
+
+              <!-- Petunjuk Akun Demo HANYA saat IS_PREVIEW === true -->
+              ${IS_PREVIEW ? `
+                <div class="mb-5 p-3.5 rounded-2xl bg-amber-50 border border-amber-200 text-xs text-amber-900 font-bold">
+                  <div class="mb-1">🔑 Akun Uji Coba (Mode Preview):</div>
+                  ${isOrtu
+                    ? `<div>ID Siswa: <code class="bg-white px-1.5 py-0.5 rounded">RA202601</code> | Password: <code class="bg-white px-1.5 py-0.5 rounded">123</code></div>`
+                    : `<div>Email: <code class="bg-white px-1.5 py-0.5 rounded">admin@restiia.sch.id</code> | Password: <code class="bg-white px-1.5 py-0.5 rounded">admin123</code></div>`
+                  }
+                </div>
+              ` : ''}
+
+              <form id="login-form" class="space-y-4">
+                <div>
+                  <label class="block text-xs font-extrabold text-clayNavy mb-1.5">
+                    ${isOrtu ? 'Username / ID Siswa' : 'Email Admin'}
+                  </label>
+                  <input
+                    type="${isOrtu ? 'text' : 'email'}"
+                    name="identifier"
+                    required
+                    placeholder="${isOrtu ? 'Contoh: RA202601' : 'admin@sekolah.sch.id'}"
+                    class="clay-input w-full px-4 py-3 text-sm font-bold text-clayNavy"
+                  />
+                </div>
+                <div>
+                  <label class="block text-xs font-extrabold text-clayNavy mb-1.5">Password</label>
+                  <input
+                    type="password"
+                    name="password"
+                    required
+                    placeholder="Masukkan password"
+                    class="clay-input w-full px-4 py-3 text-sm font-bold text-clayNavy"
+                  />
+                </div>
+
+                <button type="submit" class="${isOrtu ? 'clay-btn-pink' : 'clay-btn-blue'} w-full py-3.5 text-sm font-extrabold mt-2">
+                  ${isOrtu ? 'Masuk ke Portal Orang Tua ❯' : 'Masuk ke Dashboard Admin ❯'}
+                </button>
+              </form>
+
+              <div class="text-center mt-5">
+                <button type="button" data-action="go-public" class="text-xs font-extrabold text-slate-500 hover:text-clayNavy">
+                  ← Kembali ke Halaman Utama
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // HALAMAN 3: PORTAL ORANG TUA (SIDEBAR DESKTOP + BOTTOM NAV MOBILE)
+    // =========================================================================
+    function renderOrtuDashboard() {
+      const ortu = state.currentUser.data;
+      const anakPerkembangan = state.perkembangan.filter(x => x.siswaUsername === ortu.username);
+      const pengumuman = state.berita;
+
+      const menus = [
+        { id: 'ringkasan', icon: 'home', label: 'Ringkasan' },
+        { id: 'perkembangan', icon: 'trend', label: 'Perkembangan' },
+        { id: 'pengumuman', icon: 'megaphone', label: 'Pengumuman' },
+        { id: 'profil', icon: 'user', label: 'Profil' }
+      ];
+
+      let contentHtml = '';
+
+      if (state.ortuMenu === 'ringkasan') {
+        contentHtml = `
+          <div class="space-y-6">
+            <div class="clay-card-blue p-6 sm:p-8 text-white flex flex-wrap items-center justify-between gap-4">
+              <div>
+                <span class="px-3 py-1 rounded-full bg-white/25 text-xs font-extrabold">Selamat Datang, ${esc(ortu.namaOrtu)}</span>
+                <h2 class="text-2xl sm:text-3xl font-display font-bold mt-2">${esc(ortu.namaSiswa)}</h2>
+                <p class="text-sm font-bold text-sky-100 mt-1">Kelas: ${esc(ortu.kelas)} • Wali Kelas: ${esc(ortu.waliKelas)}</p>
+              </div>
+              <div class="w-20 h-20 rounded-full bg-white/25 flex items-center justify-center text-4xl shadow-inner">🎒</div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+              <div class="clay-surface p-5">
+                <div class="text-xs font-extrabold text-slate-500">ID Siswa</div>
+                <div class="text-2xl font-display font-bold text-clayNavy mt-1">${esc(ortu.username)}</div>
+              </div>
+              <div class="clay-surface p-5">
+                <div class="text-xs font-extrabold text-slate-500">Total Catatan Perkembangan</div>
+                <div class="text-2xl font-display font-bold text-clayPink mt-1">${anakPerkembangan.length} Laporan</div>
+              </div>
+              <div class="clay-surface p-5">
+                <div class="text-xs font-extrabold text-slate-500">Info & Pengumuman</div>
+                <div class="text-2xl font-display font-bold text-clayGreen mt-1">${pengumuman.length} Info</div>
+              </div>
+            </div>
+
+            <div class="clay-surface p-6">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-display font-bold text-clayNavy">Laporan Perkembangan Terbaru</h3>
+                <button type="button" data-ortu-menu="perkembangan" class="text-xs font-extrabold text-clayBlue">Lihat Semua →</button>
+              </div>
+              ${anakPerkembangan.length === 0 ? `
+                <p class="text-sm text-slate-500 font-bold py-6 text-center">Belum ada catatan perkembangan untuk ananda.</p>
+              ` : `
+                <div class="space-y-3">
+                  ${anakPerkembangan.slice(0, 2).map(pk => `
+                    <div class="clay-strip-cream p-4">
+                      <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                        <span class="px-3 py-0.5 rounded-full bg-amber-200 text-amber-900 text-xs font-extrabold">${esc(pk.kategori)}</span>
+                        <span class="text-xs font-bold text-slate-500">${esc(pk.tanggal)}</span>
+                      </div>
+                      <p class="text-sm font-semibold text-clayNavy mt-2">${esc(pk.catatan)}</p>
+                      <div class="text-[11px] font-bold text-slate-500 mt-2">Dicatat oleh: ${esc(pk.pencatat)}</div>
+                    </div>
+                  `).join('')}
+                </div>
+              `}
+            </div>
+          </div>
+        `;
+      } else if (state.ortuMenu === 'perkembangan') {
+        contentHtml = `
+          <div class="space-y-5">
+            <h2 class="text-2xl font-display font-bold text-clayNavy">Laporan Perkembangan Ananda</h2>
+            ${anakPerkembangan.length === 0 ? `
+              <div class="clay-surface p-10 text-center text-slate-500 font-bold">Belum ada data catatan perkembangan dari guru.</div>
+            ` : `
+              <div class="grid grid-cols-1 gap-4">
+                ${anakPerkembangan.map(pk => `
+                  <div class="clay-surface p-5">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                      <span class="px-3.5 py-1 rounded-full bg-sky-100 text-clayBlue text-xs font-extrabold">${esc(pk.kategori)}</span>
+                      <span class="text-xs font-bold text-slate-500">📅 ${esc(pk.tanggal)}</span>
+                    </div>
+                    <p class="text-sm text-slate-700 font-semibold leading-relaxed">${esc(pk.catatan)}</p>
+                    <div class="text-xs font-extrabold text-clayPink mt-3">👩‍🏫 ${esc(pk.pencatat)}</div>
+                  </div>
+                `).join('')}
+              </div>
+            `}
+          </div>
+        `;
+      } else if (state.ortuMenu === 'pengumuman') {
+        contentHtml = `
+          <div class="space-y-5">
+            <h2 class="text-2xl font-display font-bold text-clayNavy">Pengumuman & Kegiatan Sekolah</h2>
+            ${pengumuman.length === 0 ? `
+              <div class="clay-surface p-10 text-center text-slate-500 font-bold">Belum ada pengumuman sekolah.</div>
+            ` : `
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                ${pengumuman.map(b => `
+                  <div class="clay-surface p-5 flex flex-col justify-between">
+                    <div>
+                      <div class="flex items-center justify-between mb-2">
+                        <span class="px-3 py-0.5 rounded-full text-xs font-extrabold ${b.kategori === 'Internal' ? 'bg-pink-100 text-clayPink' : 'bg-sky-100 text-clayBlue'}">${esc(b.kategori || 'Publik')}</span>
+                        <span class="text-xs font-bold text-slate-400">${esc(b.tanggal)}</span>
+                      </div>
+                      <h3 class="text-lg font-display font-bold text-clayNavy mb-2">${esc(b.judul)}</h3>
+                      <p class="text-sm text-slate-600 font-semibold leading-relaxed">${esc(b.isi || b.ringkasan)}</p>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+            `}
+          </div>
+        `;
+      } else {
+        contentHtml = `
+          <div class="max-w-xl space-y-5">
+            <h2 class="text-2xl font-display font-bold text-clayNavy">Profil Akun Orang Tua</h2>
+            <div class="clay-surface p-6 space-y-3 text-sm">
+              <div class="flex justify-between py-2 border-b border-slate-100"><span class="text-slate-500 font-bold">Nama Siswa</span><span class="font-extrabold text-clayNavy">${esc(ortu.namaSiswa)}</span></div>
+              <div class="flex justify-between py-2 border-b border-slate-100"><span class="text-slate-500 font-bold">ID Siswa (Username)</span><span class="font-extrabold text-clayBlue">${esc(ortu.username)}</span></div>
+              <div class="flex justify-between py-2 border-b border-slate-100"><span class="text-slate-500 font-bold">Nama Orang Tua</span><span class="font-extrabold text-clayNavy">${esc(ortu.namaOrtu)}</span></div>
+              <div class="flex justify-between py-2 border-b border-slate-100"><span class="text-slate-500 font-bold">Kelas</span><span class="font-extrabold text-clayNavy">${esc(ortu.kelas)}</span></div>
+              <div class="flex justify-between py-2 border-b border-slate-100"><span class="text-slate-500 font-bold">Wali Kelas</span><span class="font-extrabold text-clayNavy">${esc(ortu.waliKelas)}</span></div>
+              <div class="flex justify-between py-2"><span class="text-slate-500 font-bold">No. HP</span><span class="font-extrabold text-clayNavy">${esc(ortu.noHp || '-')}</span></div>
+            </div>
+            <button type="button" data-action="logout" class="clay-btn-pink px-7 py-3 text-sm font-extrabold">🚪 Keluar dari Portal</button>
+          </div>
+        `;
+      }
+
+      return `
+        ${renderPreviewBanner()}
+        <div class="min-h-screen bg-[#f0f7ff]">
+          <!-- Fixed Sidebar Desktop -->
+          <aside class="dashboard-sidebar clay-surface p-5 justify-between">
+            <div>
+              <div class="mb-6">${renderLogo('sm', false)}</div>
+              <div class="space-y-2">
+                ${menus.map(m => `
+                  <button type="button" data-ortu-menu="${m.id}" class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-extrabold transition ${state.ortuMenu === m.id ? 'bg-clayPink text-white shadow-md' : 'text-clayNavy hover:bg-sky-50'}">
+                    <span class="flex items-center">${iconSvg(m.icon, 'w-5 h-5')}</span>
+                    <span>${m.label}</span>
+                  </button>
+                `).join('')}
+              </div>
+            </div>
+            <div class="space-y-2">
+              <button type="button" data-action="go-public" class="w-full py-2.5 rounded-2xl bg-sky-50 text-clayBlue text-xs font-extrabold hover:bg-sky-100">🌐 Halaman Utama</button>
+              <button type="button" data-action="logout" class="w-full py-2.5 rounded-2xl bg-rose-50 text-rose-600 text-xs font-extrabold hover:bg-rose-100">🚪 Keluar</button>
+            </div>
+          </aside>
+
+          <!-- Main Content -->
+          <main class="dashboard-main">
+            <div class="max-w-5xl mx-auto">
+              <div class="flex items-center justify-between mb-6 lg:hidden">
+                ${renderLogo('sm', false)}
+                <button type="button" data-action="logout" class="px-3.5 py-2 rounded-full bg-rose-100 text-rose-600 text-xs font-extrabold">Keluar</button>
+              </div>
+              ${contentHtml}
+            </div>
+          </main>
+
+          <!-- Floating Bottom Navigation Bar (Mobile) -->
+          <nav class="mobile-bottom-nav clay-pill-nav px-3 py-2 justify-around items-center">
+            ${menus.map(m => `
+              <button type="button" data-ortu-menu="${m.id}" class="flex flex-col items-center gap-0.5 px-3 py-1 rounded-2xl transition ${state.ortuMenu === m.id ? 'text-clayPink bg-pink-50' : 'text-clayNavy/70'}">
+                <span class="flex items-center">${iconSvg(m.icon, 'w-5 h-5')}</span>
+                <span class="text-[10px] font-extrabold">${m.label}</span>
+              </button>
+            `).join('')}
+          </nav>
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // HALAMAN 4: DASHBOARD ADMIN (100% LENGKAP 6 MENU + SIDEBAR & BOTTOM NAV)
+    // =========================================================================
+    function renderAdminDashboard() {
+      const menus = [
+        { id: 'dashboard', icon: 'chart', label: 'Statistik' },
+        { id: 'ppdb', icon: 'clipboard', label: 'PPDB' },
+        { id: 'siswa', icon: 'users', label: 'Siswa' },
+        { id: 'perkembangan', icon: 'trend', label: 'Laporan' },
+        { id: 'konten', icon: 'news', label: 'Konten' },
+        { id: 'pengaturan', icon: 'settings', label: 'Setelan' }
+      ];
+
+      let contentHtml = '';
+
+      // 1. DASHBOARD STATISTIK
+      if (state.adminMenu === 'dashboard') {
+        const menunggu = state.pendaftaran.filter(x => x.status === 'Menunggu').length;
+        contentHtml = `
+          <div class="space-y-6">
+            <div>
+              <h2 class="text-2xl sm:text-3xl font-display font-bold text-clayNavy">Dashboard Admin</h2>
+              <p class="text-sm font-bold text-slate-500">Ringkasan data operasional ${esc(state.pengaturan.namaSekolah)}</p>
+            </div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+              <div class="clay-card-blue p-5 text-white">
+                <div class="text-xs font-extrabold opacity-90">Siswa & Akun Ortu</div>
+                <div class="text-3xl font-display font-bold mt-1">${state.users_ortu.length}</div>
+              </div>
+              <div class="clay-card-pink p-5 text-white">
+                <div class="text-xs font-extrabold opacity-90">Pendaftar PPDB</div>
+                <div class="text-3xl font-display font-bold mt-1">${state.pendaftaran.length}</div>
+                <div class="text-[11px] font-bold mt-1">${menunggu} Menunggu</div>
+              </div>
+              <div class="clay-card-green p-5 text-white">
+                <div class="text-xs font-extrabold opacity-90">Berita & Info</div>
+                <div class="text-3xl font-display font-bold mt-1">${state.berita.length}</div>
+              </div>
+              <div class="clay-card-orange p-5 text-white">
+                <div class="text-xs font-extrabold opacity-90">Foto Galeri</div>
+                <div class="text-3xl font-display font-bold mt-1">${state.galeri.length}</div>
+              </div>
+            </div>
+
+            <div class="clay-surface p-6">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-display font-bold text-clayNavy">Pendaftar PPDB / Kunjungan Terbaru</h3>
+                <button type="button" data-admin-menu="ppdb" class="text-xs font-extrabold text-clayBlue">Kelola Semua →</button>
+              </div>
+              ${state.pendaftaran.length === 0 ? `
+                <p class="text-sm text-slate-500 font-bold text-center py-6">Belum ada pendaftar baru.</p>
+              ` : `
+                <div class="space-y-3">
+                  ${state.pendaftaran.slice(0, 4).map(r => `
+                    <div class="clay-strip-cream p-4 flex flex-wrap items-center justify-between gap-3">
+                      <div>
+                        <span class="px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-sky-100 text-clayBlue mr-2">${esc(r.jenis)}</span>
+                        <span class="font-extrabold text-clayNavy text-sm">${esc(r.namaAnak)}</span>
+                        <span class="text-xs text-slate-500 font-bold">(${esc(r.usia)}) • Ortu: ${esc(r.namaOrtu)}</span>
+                      </div>
+                      <span class="px-3 py-1 rounded-full text-xs font-extrabold ${r.status === 'Diterima' ? 'bg-emerald-100 text-emerald-700' : r.status === 'Selesai' ? 'bg-slate-200 text-slate-700' : 'bg-amber-200 text-amber-900'}">${esc(r.status)}</span>
+                    </div>
+                  `).join('')}
+                </div>
+              `}
+            </div>
+          </div>
+        `;
+      }
+
+      // 2. KELOLA PPDB & KUNJUNGAN
+      else if (state.adminMenu === 'ppdb') {
+        contentHtml = `
+          <div class="space-y-5">
+            <h2 class="text-2xl font-display font-bold text-clayNavy">Kelola PPDB & Jadwal Kunjungan</h2>
+            ${state.pendaftaran.length === 0 ? `
+              <div class="clay-surface p-10 text-center text-slate-500 font-bold">Belum ada data pendaftaran atau jadwal kunjungan.</div>
+            ` : `
+              <div class="space-y-4">
+                ${state.pendaftaran.map(r => `
+                  <div class="clay-surface p-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div class="space-y-1">
+                      <div class="flex flex-wrap items-center gap-2">
+                        <span class="px-3 py-0.5 rounded-full text-xs font-extrabold ${r.jenis === 'PPDB' ? 'bg-pink-100 text-clayPink' : 'bg-sky-100 text-clayBlue'}">${esc(r.jenis)}</span>
+                        <h3 class="font-display font-bold text-lg text-clayNavy">${esc(r.namaAnak)} (${esc(r.usia)})</h3>
+                      </div>
+                      <p class="text-xs font-bold text-slate-600">Orang Tua: ${esc(r.namaOrtu)} • WA: ${esc(r.noWa)} • Tgl Kunjungan: ${esc(r.tanggalKunjungan || '-')}</p>
+                      ${r.catatan ? `<p class="text-xs text-slate-500 italic">"${esc(r.catatan)}"</p>` : ''}
+                    </div>
+                    <div class="flex flex-wrap items-center gap-2">
+                      <select data-ppdb-status="${esc(r.id)}" class="clay-input px-3 py-2 text-xs font-extrabold text-clayNavy">
+                        <option value="Menunggu" ${r.status === 'Menunggu' ? 'selected' : ''}>Menunggu</option>
+                        <option value="Diterima" ${r.status === 'Diterima' ? 'selected' : ''}>Diterima</option>
+                        <option value="Selesai" ${r.status === 'Selesai' ? 'selected' : ''}>Selesai</option>
+                      </select>
+                      <button type="button" data-del-col="pendaftaran" data-del-id="${esc(r.id)}" class="px-3.5 py-2 rounded-xl bg-rose-100 text-rose-600 text-xs font-extrabold hover:bg-rose-200">Hapus</button>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+            `}
+          </div>
+        `;
+      }
+
+      // 3. KELOLA SISWA & AKUN ORANG TUA
+      else if (state.adminMenu === 'siswa') {
+        contentHtml = `
+          <div class="space-y-5">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h2 class="text-2xl font-display font-bold text-clayNavy">Siswa & Akun Portal Orang Tua</h2>
+                <p class="text-xs font-bold text-slate-500">Username & Password di sini digunakan Orang Tua untuk login.</p>
+              </div>
+              <button type="button" data-action="open-add-siswa" class="clay-btn-pink px-5 py-2.5 text-sm font-extrabold">+ Tambah Siswa</button>
+            </div>
+
+            ${state.users_ortu.length === 0 ? `
+              <div class="clay-surface p-10 text-center text-slate-500 font-bold">Belum ada data siswa. Klik "+ Tambah Siswa" untuk membuat akun Orang Tua pertama.</div>
+            ` : `
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                ${state.users_ortu.map(u => `
+                  <div class="clay-surface p-5 space-y-2">
+                    <div class="flex items-start justify-between gap-2">
+                      <div>
+                        <span class="px-2.5 py-0.5 rounded-full bg-sky-100 text-clayBlue text-[11px] font-extrabold">${esc(u.kelas)}</span>
+                        <h3 class="text-lg font-display font-bold text-clayNavy mt-1">${esc(u.namaSiswa)}</h3>
+                      </div>
+                      <div class="flex gap-1.5">
+                        <button type="button" data-edit-siswa="${esc(u.id)}" class="px-3 py-1.5 rounded-xl bg-amber-100 text-amber-800 text-xs font-extrabold">Edit</button>
+                        <button type="button" data-del-col="users_ortu" data-del-id="${esc(u.id)}" class="px-3 py-1.5 rounded-xl bg-rose-100 text-rose-600 text-xs font-extrabold">Hapus</button>
+                      </div>
+                    </div>
+                    <div class="text-xs font-bold text-slate-600">Ortu: ${esc(u.namaOrtu)} • HP: ${esc(u.noHp || '-')}</div>
+                    <div class="text-xs font-bold text-slate-500">Wali Kelas: ${esc(u.waliKelas)}</div>
+                    <div class="p-2.5 rounded-xl bg-slate-50 text-xs font-extrabold text-clayNavy flex justify-between">
+                      <span>ID: <code class="text-clayBlue">${esc(u.username)}</code></span>
+                      <span>Pass: <code class="text-clayPink">${esc(u.password)}</code></span>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+            `}
+          </div>
+        `;
+      }
+
+      // 4. INPUT PERKEMBANGAN SISWA
+      else if (state.adminMenu === 'perkembangan') {
+        contentHtml = `
+          <div class="space-y-6">
+            <h2 class="text-2xl font-display font-bold text-clayNavy">Input Laporan Perkembangan Siswa</h2>
+
+            <form id="form-perkembangan" class="clay-surface p-6 space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                  <label class="block text-xs font-extrabold text-clayNavy mb-1">Pilih Siswa</label>
+                  <select name="siswaUsername" required class="clay-input w-full px-3.5 py-2.5 text-sm font-bold text-clayNavy">
+                    <option value="">-- Pilih Siswa --</option>
+                    ${state.users_ortu.map(u => `<option value="${esc(u.username)}">${esc(u.namaSiswa)} (${esc(u.username)})</option>`).join('')}
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-xs font-extrabold text-clayNavy mb-1">Tanggal</label>
+                  <input type="date" name="tanggal" required value="${new Date().toISOString().slice(0, 10)}" class="clay-input w-full px-3.5 py-2.5 text-sm font-bold text-clayNavy"/>
+                </div>
+                <div>
+                  <label class="block text-xs font-extrabold text-clayNavy mb-1">Kategori</label>
+                  <select name="kategori" required class="clay-input w-full px-3.5 py-2.5 text-sm font-bold text-clayNavy">
+                    <option value="Motorik">Motorik</option>
+                    <option value="Kognitif">Kognitif</option>
+                    <option value="Sosial">Sosial & Emosional</option>
+                    <option value="Bahasa">Bahasa & Komunikasi</option>
+                    <option value="Akhlak">Nilai Agama & Akhlak</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-extrabold text-clayNavy mb-1">Nama Guru Pencatat</label>
+                <input type="text" name="pencatat" required placeholder="Contoh: Ibu Sari Rahmawati, S.Pd" class="clay-input w-full px-4 py-2.5 text-sm font-bold text-clayNavy"/>
+              </div>
+              <div>
+                <label class="block text-xs font-extrabold text-clayNavy mb-1">Catatan Perkembangan</label>
+                <textarea name="catatan" rows="3" required placeholder="Tulis pencapaian atau aktivitas positif ananda hari ini..." class="clay-input w-full px-4 py-2.5 text-sm font-bold text-clayNavy"></textarea>
+              </div>
+              <button type="submit" class="clay-btn-blue px-6 py-2.5 text-sm font-extrabold">💾 Simpan Laporan Perkembangan</button>
+            </form>
+
+            <div class="space-y-3">
+              <h3 class="text-lg font-display font-bold text-clayNavy">Riwayat Laporan Tersimpan</h3>
+              ${state.perkembangan.length === 0 ? `
+                <div class="clay-surface p-8 text-center text-slate-500 text-sm font-bold">Belum ada laporan perkembangan.</div>
+              ` : state.perkembangan.map(pk => `
+                <div class="clay-surface p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div>
+                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                      <span class="font-extrabold text-clayNavy text-sm">${esc(pk.namaSiswa)}</span>
+                      <span class="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[11px] font-extrabold">${esc(pk.kategori)}</span>
+                      <span class="text-xs text-slate-400 font-bold">${esc(pk.tanggal)}</span>
+                    </div>
+                    <p class="text-xs text-slate-600 font-semibold">${esc(pk.catatan)}</p>
+                    <div class="text-[11px] text-slate-400 font-bold mt-1">Guru: ${esc(pk.pencatat)}</div>
+                  </div>
+                  <button type="button" data-del-col="perkembangan" data-del-id="${esc(pk.id)}" class="px-3 py-1.5 rounded-xl bg-rose-100 text-rose-600 text-xs font-extrabold self-start sm:self-center">Hapus</button>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
+
+      // 5. KELOLA BERITA & GALERI
+      else if (state.adminMenu === 'konten') {
+        const isBerita = state.adminKontenTab === 'berita';
+        contentHtml = `
+          <div class="space-y-5">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <h2 class="text-2xl font-display font-bold text-clayNavy">Kelola Berita & Galeri</h2>
+              <div class="flex gap-2 p-1 rounded-full bg-white shadow-sm">
+                <button type="button" data-konten-tab="berita" class="px-4 py-1.5 rounded-full text-xs font-extrabold ${isBerita ? 'bg-clayBlue text-white' : 'text-clayNavy'}">📰 Berita</button>
+                <button type="button" data-konten-tab="galeri" class="px-4 py-1.5 rounded-full text-xs font-extrabold ${!isBerita ? 'bg-clayPink text-white' : 'text-clayNavy'}">🖼️ Galeri</button>
+              </div>
+            </div>
+
+            ${isBerita ? `
+              <form id="form-berita" class="clay-surface p-6 space-y-4">
+                <h3 class="font-display font-bold text-base text-clayNavy">Tambah Berita / Pengumuman Baru</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div class="sm:col-span-2">
+                    <label class="block text-xs font-extrabold text-clayNavy mb-1">Judul Berita</label>
+                    <input type="text" name="judul" required placeholder="Judul kegiatan atau pengumuman" class="clay-input w-full px-4 py-2.5 text-sm font-bold"/>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-extrabold text-clayNavy mb-1">Kategori</label>
+                    <select name="kategori" class="clay-input w-full px-3.5 py-2.5 text-sm font-bold">
+                      <option value="Publik">Publik (Tampil di Depan)</option>
+                      <option value="Internal">Internal (Portal Ortu)</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-xs font-extrabold text-clayNavy mb-1">Tanggal</label>
+                    <input type="date" name="tanggal" required value="${new Date().toISOString().slice(0, 10)}" class="clay-input w-full px-4 py-2.5 text-sm font-bold"/>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-extrabold text-clayNavy mb-1">URL Gambar (Opsional)</label>
+                    <input type="url" name="gambarUrl" placeholder="https://..." class="clay-input w-full px-4 py-2.5 text-sm font-bold"/>
+                  </div>
+                </div>
+                <div>
+                  <label class="block text-xs font-extrabold text-clayNavy mb-1">Ringkasan Singkat</label>
+                  <input type="text" name="ringkasan" required placeholder="1-2 kalimat ringkasan" class="clay-input w-full px-4 py-2.5 text-sm font-bold"/>
+                </div>
+                <div>
+                  <label class="block text-xs font-extrabold text-clayNavy mb-1">Isi Lengkap</label>
+                  <textarea name="isi" rows="3" required placeholder="Tulis isi lengkap berita..." class="clay-input w-full px-4 py-2.5 text-sm font-bold"></textarea>
+                </div>
+                <button type="submit" class="clay-btn-blue px-6 py-2.5 text-sm font-extrabold">+ Publikasikan Berita</button>
+              </form>
+
+              <div class="space-y-3">
+                ${state.berita.length === 0 ? `
+                  <div class="clay-surface p-8 text-center text-slate-500 text-sm font-bold">Belum ada berita.</div>
+                ` : state.berita.map(b => `
+                  <div class="clay-surface p-4 flex items-center justify-between gap-4">
+                    <div class="flex items-center gap-3 min-w-0">
+                      <img src="${esc(b.gambarUrl || FALLBACK_IMG)}" onerror="handleImgError(this)" class="w-16 h-14 rounded-xl object-cover flex-shrink-0"/>
+                      <div class="min-w-0">
+                        <span class="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-sky-100 text-clayBlue">${esc(b.kategori)}</span>
+                        <div class="font-extrabold text-sm text-clayNavy truncate">${esc(b.judul)}</div>
+                        <div class="text-xs text-slate-400 font-bold">${esc(b.tanggal)}</div>
+                      </div>
+                    </div>
+                    <button type="button" data-del-col="berita" data-del-id="${esc(b.id)}" class="px-3 py-1.5 rounded-xl bg-rose-100 text-rose-600 text-xs font-extrabold">Hapus</button>
+                  </div>
+                `).join('')}
+              </div>
+            ` : `
+              <form id="form-galeri" class="clay-surface p-6 space-y-4">
+                <h3 class="font-display font-bold text-base text-clayNavy">Tambah Foto Galeri</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-xs font-extrabold text-clayNavy mb-1">Judul Foto</label>
+                    <input type="text" name="judul" required placeholder="Contoh: Lomba Mewarnai" class="clay-input w-full px-4 py-2.5 text-sm font-bold"/>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-extrabold text-clayNavy mb-1">Kategori</label>
+                    <input type="text" name="kategori" required placeholder="Kegiatan Kelas / Outing" class="clay-input w-full px-4 py-2.5 text-sm font-bold"/>
+                  </div>
+                </div>
+                <div>
+                  <label class="block text-xs font-extrabold text-clayNavy mb-1">URL Gambar</label>
+                  <input type="url" name="gambarUrl" required placeholder="https://..." class="clay-input w-full px-4 py-2.5 text-sm font-bold"/>
+                </div>
+                <div>
+                  <label class="block text-xs font-extrabold text-clayNavy mb-1">Deskripsi Singkat</label>
+                  <input type="text" name="deskripsi" placeholder="Keterangan foto" class="clay-input w-full px-4 py-2.5 text-sm font-bold"/>
+                </div>
+                <button type="submit" class="clay-btn-pink px-6 py-2.5 text-sm font-extrabold">+ Tambah ke Galeri</button>
+              </form>
+
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                ${state.galeri.length === 0 ? `
+                  <div class="col-span-full clay-surface p-8 text-center text-slate-500 text-sm font-bold">Belum ada foto galeri.</div>
+                ` : state.galeri.map(g => `
+                  <div class="clay-surface p-3 space-y-2">
+                    <img src="${esc(g.gambarUrl)}" onerror="handleImgError(this)" class="w-full h-32 object-cover rounded-2xl"/>
+                    <div class="font-extrabold text-xs text-clayNavy truncate">${esc(g.judul)}</div>
+                    <button type="button" data-del-col="galeri" data-del-id="${esc(g.id)}" class="w-full py-1.5 rounded-xl bg-rose-100 text-rose-600 text-xs font-extrabold">Hapus Foto</button>
+                  </div>
+                `).join('')}
+              </div>
+            `}
+          </div>
+        `;
+      }
+
+      // 6. PENGATURAN SEKOLAH
+      else {
+        const p = state.pengaturan;
+        contentHtml = `
+          <div class="max-w-2xl space-y-5">
+            <h2 class="text-2xl font-display font-bold text-clayNavy">Pengaturan Profil Sekolah</h2>
+            <form id="form-pengaturan" class="clay-surface p-6 space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-extrabold text-clayNavy mb-1">Nama Sekolah</label>
+                  <input type="text" name="namaSekolah" required value="${esc(p.namaSekolah)}" class="clay-input w-full px-4 py-2.5 text-sm font-bold"/>
+                </div>
+                <div>
+                  <label class="block text-xs font-extrabold text-clayNavy mb-1">Tagline</label>
+                  <input type="text" name="tagline" required value="${esc(p.tagline)}" class="clay-input w-full px-4 py-2.5 text-sm font-bold"/>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-extrabold text-clayNavy mb-1">Nomor Telepon / WA</label>
+                  <input type="text" name="telepon" required value="${esc(p.telepon)}" class="clay-input w-full px-4 py-2.5 text-sm font-bold"/>
+                </div>
+                <div>
+                  <label class="block text-xs font-extrabold text-clayNavy mb-1">Email Sekolah</label>
+                  <input type="email" name="email" required value="${esc(p.email)}" class="clay-input w-full px-4 py-2.5 text-sm font-bold"/>
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-extrabold text-clayNavy mb-1">Alamat Lengkap</label>
+                <input type="text" name="alamat" required value="${esc(p.alamat)}" class="clay-input w-full px-4 py-2.5 text-sm font-bold"/>
+              </div>
+              <div>
+                <label class="block text-xs font-extrabold text-clayNavy mb-1">Teks Sambutan Beranda</label>
+                <textarea name="sambutan" rows="3" required class="clay-input w-full px-4 py-2.5 text-sm font-bold">${esc(p.sambutan)}</textarea>
+              </div>
+              <button type="submit" class="clay-btn-blue px-7 py-3 text-sm font-extrabold">💾 Simpan Pengaturan</button>
+            </form>
+          </div>
+        `;
+      }
+
+      return `
+        ${renderPreviewBanner()}
+        <div class="min-h-screen bg-[#f0f7ff]">
+          <!-- Fixed Sidebar Desktop -->
+          <aside class="dashboard-sidebar clay-surface p-5 justify-between">
+            <div>
+              <div class="mb-5">${renderLogo('sm', false)}</div>
+              <div class="space-y-1.5">
+                ${menus.map(m => `
+                  <button type="button" data-admin-menu="${m.id}" class="w-full flex items-center gap-3 px-4 py-2.5 rounded-2xl text-sm font-extrabold transition ${state.adminMenu === m.id ? 'bg-clayBlue text-white shadow-md' : 'text-clayNavy hover:bg-sky-50'}">
+                    <span class="flex items-center">${iconSvg(m.icon, 'w-5 h-5')}</span>
+                    <span>${m.label}</span>
+                  </button>
+                `).join('')}
+              </div>
+            </div>
+            <div class="space-y-2 pt-4">
+              <button type="button" data-action="go-public" class="w-full py-2.5 rounded-2xl bg-sky-50 text-clayBlue text-xs font-extrabold hover:bg-sky-100">🌐 Lihat Website</button>
+              <button type="button" data-action="logout" class="w-full py-2.5 rounded-2xl bg-rose-50 text-rose-600 text-xs font-extrabold hover:bg-rose-100">🚪 Keluar Admin</button>
+            </div>
+          </aside>
+
+          <!-- Main Content -->
+          <main class="dashboard-main">
+            <div class="max-w-5xl mx-auto">
+              <div class="flex items-center justify-between mb-5 lg:hidden">
+                ${renderLogo('sm', false)}
+                <button type="button" data-action="logout" class="px-3.5 py-2 rounded-full bg-rose-100 text-rose-600 text-xs font-extrabold">Keluar</button>
+              </div>
+              ${contentHtml}
+            </div>
+          </main>
+
+          <!-- Floating Bottom Navigation Bar (Mobile) -->
+          <nav class="mobile-bottom-nav clay-pill-nav px-2 py-2 justify-around items-center">
+            ${menus.map(m => `
+              <button type="button" data-admin-menu="${m.id}" class="flex flex-col items-center gap-0.5 px-2 py-1 rounded-2xl transition ${state.adminMenu === m.id ? 'text-clayBlue bg-sky-50' : 'text-clayNavy/70'}">
+                <span class="flex items-center">${iconSvg(m.icon, 'w-5 h-5')}</span>
+                <span class="text-[10px] font-extrabold">${m.label}</span>
+              </button>
+            `).join('')}
+          </nav>
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // MODAL FORMULIR PPDB / KUNJUNGAN & MODAL TAMBAH/EDIT SISWA
+    // =========================================================================
+    function showPPDBModal(defaultJenis = 'PPDB') {
+      openModal(`
+        <h3 class="text-2xl font-display font-bold text-clayNavy mb-1">Formulir ${esc(defaultJenis === 'PPDB' ? 'Pendaftaran PPDB' : 'Jadwal Kunjungan')}</h3>
+        <p class="text-xs font-bold text-slate-500 mb-5">Isi data di bawah ini, tim ${esc(state.pengaturan.namaSekolah)} akan segera menghubungi Ayah/Bunda.</p>
+        <form id="form-ppdb-public" class="space-y-3.5">
+          <div>
+            <label class="block text-xs font-extrabold text-clayNavy mb-1">Jenis Permintaan</label>
+            <select name="jenis" class="clay-input w-full px-4 py-2.5 text-sm font-bold text-clayNavy">
+              <option value="PPDB" ${defaultJenis === 'PPDB' ? 'selected' : ''}>Pendaftaran Siswa Baru (PPDB)</option>
+              <option value="Kunjungan" ${defaultJenis === 'Kunjungan' ? 'selected' : ''}>Jadwalkan Kunjungan Sekolah</option>
+            </select>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div>
+              <label class="block text-xs font-extrabold text-clayNavy mb-1">Nama Calon Siswa</label>
+              <input type="text" name="namaAnak" required placeholder="Nama lengkap anak" class="clay-input w-full px-4 py-2.5 text-sm font-bold"/>
+            </div>
+            <div>
+              <label class="block text-xs font-extrabold text-clayNavy mb-1">Usia Anak</label>
+              <input type="text" name="usia" required placeholder="Contoh: 4,5 Tahun" class="clay-input w-full px-4 py-2.5 text-sm font-bold"/>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div>
+              <label class="block text-xs font-extrabold text-clayNavy mb-1">Nama Orang Tua / Wali</label>
+              <input type="text" name="namaOrtu" required placeholder="Nama Ayah/Bunda" class="clay-input w-full px-4 py-2.5 text-sm font-bold"/>
+            </div>
+            <div>
+              <label class="block text-xs font-extrabold text-clayNavy mb-1">Nomor WhatsApp</label>
+              <input type="tel" name="noWa" required placeholder="08xxxxxxxxxx" class="clay-input w-full px-4 py-2.5 text-sm font-bold"/>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-extrabold text-clayNavy mb-1">Rencana Tanggal Kunjungan (Opsional)</label>
+            <input type="date" name="tanggalKunjungan" class="clay-input w-full px-4 py-2.5 text-sm font-bold"/>
+          </div>
+          <div>
+            <label class="block text-xs font-extrabold text-clayNavy mb-1">Catatan Tambahan</label>
+            <textarea name="catatan" rows="2" placeholder="Pertanyaan atau kelas yang diminati..." class="clay-input w-full px-4 py-2.5 text-sm font-bold"></textarea>
+          </div>
+          <button type="submit" class="clay-btn-pink w-full py-3 text-sm font-extrabold mt-2">🚀 Kirim Formulir</button>
+        </form>
+      `);
+
+      document.getElementById('form-ppdb-public').onsubmit = async (e) => {
+        e.preventDefault();
+        const fd = new FormData(e.target);
+        const payload = {
+          jenis: fd.get('jenis'),
+          namaAnak: fd.get('namaAnak').trim(),
+          usia: fd.get('usia').trim(),
+          namaOrtu: fd.get('namaOrtu').trim(),
+          noWa: fd.get('noWa').trim(),
+          tanggalKunjungan: fd.get('tanggalKunjungan') || '-',
+          catatan: fd.get('catatan').trim(),
+          status: 'Menunggu'
+        };
+        try {
+          await createItem('pendaftaran', payload);
+          closeModal();
+          showToast("Terima kasih! Formulir Anda berhasil dikirim.");
+        } catch (err) {
+          showToast("Gagal mengirim formulir. Periksa koneksi Anda.", "error");
+        }
+      };
+    }
+
+    function showSiswaModal(editObj = null) {
+      openModal(`
+        <h3 class="text-2xl font-display font-bold text-clayNavy mb-4">${editObj ? 'Edit Data Siswa & Akun Ortu' : 'Tambah Siswa & Akun Ortu Baru'}</h3>
+        <form id="form-siswa-modal" class="space-y-3.5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div>
+              <label class="block text-xs font-extrabold text-clayNavy mb-1">ID Siswa / Username Login</label>
+              <input type="text" name="username" required value="${esc(editObj?.username || '')}" placeholder="Contoh: RA202605" class="clay-input w-full px-4 py-2.5 text-sm font-bold"/>
+            </div>
+            <div>
+              <label class="block text-xs font-extrabold text-clayNavy mb-1">Password Login Ortu</label>
+              <input type="text" name="password" required value="${esc(editObj?.password || '')}" placeholder="Password akun" class="clay-input w-full px-4 py-2.5 text-sm font-bold"/>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div>
+              <label class="block text-xs font-extrabold text-clayNavy mb-1">Nama Lengkap Siswa</label>
+              <input type="text" name="namaSiswa" required value="${esc(editObj?.namaSiswa || '')}" class="clay-input w-full px-4 py-2.5 text-sm font-bold"/>
+            </div>
+            <div>
+              <label class="block text-xs font-extrabold text-clayNavy mb-1">Nama Orang Tua</label>
+              <input type="text" name="namaOrtu" required value="${esc(editObj?.namaOrtu || '')}" class="clay-input w-full px-4 py-2.5 text-sm font-bold"/>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div>
+              <label class="block text-xs font-extrabold text-clayNavy mb-1">Kelas</label>
+              <input type="text" name="kelas" required value="${esc(editObj?.kelas || 'TK A - Bintang')}" class="clay-input w-full px-4 py-2.5 text-sm font-bold"/>
+            </div>
+            <div>
+              <label class="block text-xs font-extrabold text-clayNavy mb-1">Wali Kelas</label>
+              <input type="text" name="waliKelas" required value="${esc(editObj?.waliKelas || '')}" class="clay-input w-full px-4 py-2.5 text-sm font-bold"/>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-extrabold text-clayNavy mb-1">Nomor HP Orang Tua</label>
+            <input type="tel" name="noHp" value="${esc(editObj?.noHp || '')}" class="clay-input w-full px-4 py-2.5 text-sm font-bold"/>
+          </div>
+          <button type="submit" class="clay-btn-blue w-full py-3 text-sm font-extrabold mt-2">💾 ${editObj ? 'Simpan Perubahan' : 'Buat Akun Siswa'}</button>
+        </form>
+      `);
+
+      document.getElementById('form-siswa-modal').onsubmit = async (e) => {
+        e.preventDefault();
+        const fd = new FormData(e.target);
+        const payload = {
+          username: fd.get('username').trim(),
+          password: fd.get('password').trim(),
+          namaSiswa: fd.get('namaSiswa').trim(),
+          namaOrtu: fd.get('namaOrtu').trim(),
+          kelas: fd.get('kelas').trim(),
+          waliKelas: fd.get('waliKelas').trim(),
+          noHp: fd.get('noHp').trim()
+        };
+        try {
+          if (editObj) {
+            await updateItem('users_ortu', editObj.id, payload);
+            showToast("Data siswa berhasil diperbarui.");
+          } else {
+            await createItem('users_ortu', payload);
+            showToast("Siswa & akun orang tua berhasil ditambahkan.");
+          }
+          closeModal();
+          render();
+        } catch (err) {
+          showToast("Gagal menyimpan data siswa.", "error");
+        }
+      };
+    }
+
+    // =========================================================================
+    // INTERAKSI HERO (3D MOUSE TILT, PARALLAX, CURSOR SPOTLIGHT - NON-TOUCH)
+    // =========================================================================
+    function initHeroInteractions() {
+      const isTouch = window.matchMedia('(pointer: coarse)').matches;
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (isTouch || reducedMotion) return;
+
+      const hero = document.getElementById('sec-beranda');
+      const tiltCard = document.getElementById('hero-tilt-card');
+      const spotlight = document.getElementById('hero-spotlight');
+      if (!hero || !tiltCard) return;
+
+      hero.addEventListener('mousemove', (e) => {
+        const rect = hero.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const nx = (x / rect.width) - 0.5;
+        const ny = (y / rect.height) - 0.5;
+
+        if (spotlight) {
+          spotlight.style.setProperty('--spot-x', `${x}px`);
+          spotlight.style.setProperty('--spot-y', `${y}px`);
+        }
+
+        const rotY = -6 + nx * 14;
+        const rotX = 3 - ny * 12;
+        tiltCard.style.transform = `perspective(1000px) rotateY(${rotY.toFixed(2)}deg) rotateX(${rotX.toFixed(2)}deg)`;
+
+        hero.querySelectorAll('[data-parallax]').forEach(el => {
+          const depth = parseFloat(el.getAttribute('data-parallax')) || 10;
+          el.style.transform = `translate3d(${(nx * depth).toFixed(1)}px, ${(ny * depth).toFixed(1)}px, 0)`;
+        });
+      });
+
+      hero.addEventListener('mouseleave', () => {
+        tiltCard.style.transform = 'perspective(1000px) rotateY(-6deg) rotateX(3deg)';
+      });
+    }
+
+    // =========================================================================
+    // EVENT BINDINGS & HANDLER LOGIN HYBRID
+    // =========================================================================
+    function bindEvents() {
+      const root = document.getElementById('app-content');
+
+      // Smooth Scroll
+      root.querySelectorAll('[data-scroll]').forEach(btn => {
+        btn.onclick = () => {
+          const target = document.getElementById(btn.getAttribute('data-scroll'));
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        };
+      });
+
+      // Navigasi View
+      root.querySelectorAll('[data-action="go-public"]').forEach(b => b.onclick = () => { state.view = 'public'; render(); });
+      root.querySelectorAll('[data-action="go-login"]').forEach(b => b.onclick = () => { state.view = 'login'; render(); });
+      root.querySelectorAll('[data-action="go-login-ortu"]').forEach(b => b.onclick = () => { state.loginTab = 'ortu'; state.view = 'login'; render(); });
+
+      // Logout
+      root.querySelectorAll('[data-action="logout"]').forEach(b => b.onclick = async () => {
+        if (!IS_PREVIEW && auth && state.currentUser?.role === 'admin') {
+          try { await signOut(auth); } catch (_) {}
+        }
+        state.currentUser = null;
+        state.view = 'public';
+        showToast("Anda telah keluar dari sistem.", "info");
+        render();
+      });
+
+      // PPDB Modal
+      root.querySelectorAll('[data-action="open-ppdb"]').forEach(b => {
+        b.onclick = () => showPPDBModal(b.getAttribute('data-jenis') || 'PPDB');
+      });
+
+      // Visi Misi Modal
+      root.querySelectorAll('[data-action="open-visi"]').forEach(b => {
+        b.onclick = () => openModal(`
+          <h3 class="text-2xl font-display font-bold text-clayNavy mb-3">Visi & Misi ${esc(state.pengaturan.namaSekolah)}</h3>
+          <div class="space-y-4 text-sm text-slate-600 font-semibold">
+            <div class="clay-strip-cream p-4">
+              <div class="font-display font-bold text-clayPink mb-1">🌟 Visi</div>
+              <p>Terwujudnya generasi anak usia dini yang ceria, cerdas, kreatif, mandiri, dan berakhlak mulia.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-sky-50">
+              <div class="font-display font-bold text-clayBlue mb-1">🎯 Misi</div>
+              <ul class="list-disc pl-5 space-y-1">
+                <li>Menyelenggarakan pembelajaran aktif berbasis bermain yang menyenangkan.</li>
+                <li>Menanamkan nilai keimanan, kejujuran, dan kasih sayang sejak dini.</li>
+                <li>Membangun kemitraan erat antara guru dan orang tua melalui pemantauan berkala.</li>
+              </ul>
+            </div>
+          </div>
+        `);
+      });
+
+      // Pilar Detail Modal
+      const pilarDetails = [
+        { title: 'Bermain & Belajar', desc: 'Anak-anak belajar paling efektif melalui bermain. Kami menyediakan sentra balok, sentra bahan alam, dan permainan sensorik untuk memantik kreativitas.' },
+        { title: 'Tumbuh Bersama', desc: 'Setiap anak unik. Kami mendampingi perkembangan sosial-emosional agar anak mampu berteman, berbagi, dan menghargai sesama.' },
+        { title: 'Langkah Cerdas', desc: 'Kurikulum usia dini yang seimbang antara literasi, numerasi ceria, motorik, serta pengenalan bahasa sejak dini tanpa membebani anak.' },
+        { title: 'Aman & Peduli', desc: 'Keamanan fisik dan kenyamanan psikologis anak adalah prioritas utama kami dengan pengawasan guru yang hangat.' }
+      ];
+      root.querySelectorAll('[data-pilar]').forEach(b => {
+        b.onclick = () => {
+          const item = pilarDetails[Number(b.getAttribute('data-pilar'))];
+          if (!item) return;
+          openModal(`
+            <h3 class="text-2xl font-display font-bold text-clayNavy mb-3">${item.title}</h3>
+            <p class="text-sm text-slate-600 font-semibold leading-relaxed mb-5">${item.desc}</p>
+            <button type="button" id="pilar-cta" class="clay-btn-pink px-6 py-2.5 text-sm font-extrabold">Daftar Sekarang ❯</button>
+          `);
+          document.getElementById('pilar-cta').onclick = () => { closeModal(); showPPDBModal('PPDB'); };
+        };
+      });
+
+      // Baca Berita Detail
+      root.querySelectorAll('[data-read-berita]').forEach(el => {
+        el.onclick = () => {
+          const item = state.berita.find(b => b.id === el.getAttribute('data-read-berita'));
+          if (!item) return;
+          openModal(`
+            <img src="${esc(item.gambarUrl || FALLBACK_IMG)}" onerror="handleImgError(this)" class="w-full h-52 object-cover rounded-2xl mb-4"/>
+            <div class="text-xs font-extrabold text-clayBlue mb-1">${esc(item.tanggal)} • ${esc(item.kategori || 'Publik')}</div>
+            <h3 class="text-2xl font-display font-bold text-clayNavy mb-3">${esc(item.judul)}</h3>
+            <p class="text-sm text-slate-600 font-semibold leading-relaxed whitespace-pre-line">${esc(item.isi || item.ringkasan)}</p>
+          `);
+        };
+      });
+
+      // Lihat Galeri
+      root.querySelectorAll('[data-view-galeri]').forEach(el => {
+        el.onclick = () => {
+          const g = state.galeri.find(x => x.id === el.getAttribute('data-view-galeri'));
+          if (!g) return;
+          openModal(`
+            <img src="${esc(g.gambarUrl)}" onerror="handleImgError(this)" class="w-full max-h-80 object-cover rounded-2xl mb-3"/>
+            <span class="px-3 py-0.5 rounded-full bg-pink-100 text-clayPink text-xs font-extrabold">${esc(g.kategori)}</span>
+            <h3 class="text-xl font-display font-bold text-clayNavy mt-2">${esc(g.judul)}</h3>
+            <p class="text-sm text-slate-600 font-semibold mt-1">${esc(g.deskripsi || '')}</p>
+          `);
+        };
+      });
+
+      root.querySelectorAll('[data-action="open-galeri-all"]').forEach(b => {
+        b.onclick = () => {
+          openModal(`
+            <h3 class="text-2xl font-display font-bold text-clayNavy mb-4">Galeri Kegiatan ${esc(state.pengaturan.namaSekolah)}</h3>
+            ${state.galeri.length === 0 ? '<p class="text-sm text-slate-500 font-bold text-center py-6">Belum ada foto galeri.</p>' : `
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                ${state.galeri.map(g => `
+                  <div class="rounded-2xl overflow-hidden border border-slate-100 shadow-sm">
+                    <img src="${esc(g.gambarUrl)}" onerror="handleImgError(this)" class="w-full h-40 object-cover"/>
+                    <div class="p-3">
+                      <div class="font-display font-bold text-sm text-clayNavy">${esc(g.judul)}</div>
+                      <div class="text-xs text-slate-500 font-semibold">${esc(g.deskripsi || '')}</div>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+            `}
+          `);
+        };
+      });
+
+      // Switch Tab Login
+      root.querySelectorAll('[data-login-tab]').forEach(b => {
+        b.onclick = () => { state.loginTab = b.getAttribute('data-login-tab'); render(); };
+      });
+
+      // SUBMIT LOGIN HYBRID
+      const loginForm = document.getElementById('login-form');
+      if (loginForm) {
+        loginForm.onsubmit = async (e) => {
+          e.preventDefault();
+          const fd = new FormData(loginForm);
+          const identifier = fd.get('identifier').trim();
+          const password = fd.get('password').trim();
+
+          if (state.loginTab === 'ortu') {
+            // LOGIN ORANG TUA: VALIDASI KOLEKSI FIRESTORE users_ortu
+            if (IS_PREVIEW) {
+              const found = state.users_ortu.find(u => u.username === identifier && u.password === password);
+              if (!found) return showToast("ID Siswa atau Password tidak cocok!", "error");
+              state.currentUser = { role: 'ortu', data: found };
+              state.view = 'ortu';
+              state.ortuMenu = 'ringkasan';
+              showToast(`Selamat datang, ${found.namaOrtu}!`);
+              render();
+            } else {
+              try {
+                const q = query(collection(db, 'users_ortu'), where('username', '==', identifier));
+                const snap = await getDocs(q);
+                if (snap.empty) return showToast("ID Siswa tidak ditemukan.", "error");
+                const docMatch = snap.docs.find(d => d.data().password === password);
+                if (!docMatch) return showToast("Password salah. Silakan coba lagi.", "error");
+                const userData = { id: docMatch.id, ...docMatch.data() };
+                state.currentUser = { role: 'ortu', data: userData };
+                await loadOrtuData(userData.username);
+                state.view = 'ortu';
+                state.ortuMenu = 'ringkasan';
+                showToast(`Selamat datang, ${userData.namaOrtu}!`);
+                render();
+              } catch (err) {
+                showToast("Gagal memverifikasi akun ke Firestore.", "error");
+              }
+            }
+          } else {
+            // LOGIN ADMIN: FIREBASE AUTHENTICATION
+            if (IS_PREVIEW) {
+              if (identifier === 'admin@restiia.sch.id' && password === 'admin123') {
+                state.currentUser = { role: 'admin', data: { email: identifier } };
+                state.view = 'admin';
+                state.adminMenu = 'dashboard';
+                showToast("Login Admin berhasil (Mode Preview)!");
+                render();
+              } else {
+                showToast("Email atau Password Admin preview salah!", "error");
+              }
+            } else {
+              try {
+                const cred = await signInWithEmailAndPassword(auth, identifier, password);
+                state.currentUser = { role: 'admin', data: { email: cred.user.email, uid: cred.user.uid } };
+                await loadAdminData();
+                state.view = 'admin';
+                state.adminMenu = 'dashboard';
+                showToast("Login Admin berhasil!");
+                render();
+              } catch (err) {
+                showToast("Email atau Password Admin tidak valid di Firebase Auth.", "error");
+              }
+            }
+          }
+        };
+      }
+
+      // Menu Portal Ortu
+      root.querySelectorAll('[data-ortu-menu]').forEach(b => {
+        b.onclick = () => { state.ortuMenu = b.getAttribute('data-ortu-menu'); render(); };
+      });
+
+      // Menu Admin
+      root.querySelectorAll('[data-admin-menu]').forEach(b => {
+        b.onclick = () => { state.adminMenu = b.getAttribute('data-admin-menu'); render(); };
+      });
+      root.querySelectorAll('[data-konten-tab]').forEach(b => {
+        b.onclick = () => { state.adminKontenTab = b.getAttribute('data-konten-tab'); render(); };
+      });
+
+      // Admin: Tambah & Edit Siswa
+      root.querySelectorAll('[data-action="open-add-siswa"]').forEach(b => b.onclick = () => showSiswaModal(null));
+      root.querySelectorAll('[data-edit-siswa]').forEach(b => {
+        b.onclick = () => {
+          const obj = state.users_ortu.find(u => u.id === b.getAttribute('data-edit-siswa'));
+          if (obj) showSiswaModal(obj);
+        };
+      });
+
+      // Admin: Ubah Status PPDB
+      root.querySelectorAll('[data-ppdb-status]').forEach(sel => {
+        sel.onchange = async () => {
+          try {
+            await updateItem('pendaftaran', sel.getAttribute('data-ppdb-status'), { status: sel.value });
+            showToast("Status pendaftaran diperbarui.");
+          } catch (err) {
+            showToast("Gagal memperbarui status.", "error");
+          }
+        };
+      });
+
+      // Admin: Hapus Item Umum (dengan Custom Confirm Modal)
+      root.querySelectorAll('[data-del-col]').forEach(b => {
+        b.onclick = () => {
+          const col = b.getAttribute('data-del-col');
+          const id = b.getAttribute('data-del-id');
+          confirmModal("Konfirmasi Hapus", "Data yang dihapus tidak dapat dikembalikan. Lanjutkan?", async () => {
+            try {
+              await deleteItem(col, id);
+              showToast("Data berhasil dihapus.", "info");
+              render();
+            } catch (err) {
+              showToast("Gagal menghapus data.", "error");
+            }
+          });
+        };
+      });
+
+      // Admin: Form Perkembangan
+      const formPerk = document.getElementById('form-perkembangan');
+      if (formPerk) {
+        formPerk.onsubmit = async (e) => {
+          e.preventDefault();
+          const fd = new FormData(formPerk);
+          const uname = fd.get('siswaUsername');
+          const siswa = state.users_ortu.find(u => u.username === uname);
+          try {
+            await createItem('perkembangan', {
+              siswaUsername: uname,
+              namaSiswa: siswa ? siswa.namaSiswa : uname,
+              tanggal: fd.get('tanggal'),
+              kategori: fd.get('kategori'),
+              pencatat: fd.get('pencatat').trim(),
+              catatan: fd.get('catatan').trim()
+            });
+            showToast("Laporan perkembangan berhasil disimpan!");
+            render();
+          } catch (err) {
+            showToast("Gagal menyimpan laporan.", "error");
+          }
+        };
+      }
+
+      // Admin: Form Berita
+      const formBerita = document.getElementById('form-berita');
+      if (formBerita) {
+        formBerita.onsubmit = async (e) => {
+          e.preventDefault();
+          const fd = new FormData(formBerita);
+          try {
+            await createItem('berita', {
+              judul: fd.get('judul').trim(),
+              kategori: fd.get('kategori'),
+              tanggal: fd.get('tanggal'),
+              gambarUrl: fd.get('gambarUrl').trim(),
+              ringkasan: fd.get('ringkasan').trim(),
+              isi: fd.get('isi').trim()
+            });
+            showToast("Berita berhasil dipublikasikan!");
+            render();
+          } catch (err) {
+            showToast("Gagal menyimpan berita.", "error");
+          }
+        };
+      }
+
+      // Admin: Form Galeri
+      const formGaleri = document.getElementById('form-galeri');
+      if (formGaleri) {
+        formGaleri.onsubmit = async (e) => {
+          e.preventDefault();
+          const fd = new FormData(formGaleri);
+          try {
+            await createItem('galeri', {
+              judul: fd.get('judul').trim(),
+              kategori: fd.get('kategori').trim(),
+              gambarUrl: fd.get('gambarUrl').trim(),
+              deskripsi: fd.get('deskripsi').trim()
+            });
+            showToast("Foto berhasil ditambahkan ke galeri!");
+            render();
+          } catch (err) {
+            showToast("Gagal menambahkan foto.", "error");
+          }
+        };
+      }
+
+      // Admin: Form Pengaturan
+      const formSet = document.getElementById('form-pengaturan');
+      if (formSet) {
+        formSet.onsubmit = async (e) => {
+          e.preventDefault();
+          const fd = new FormData(formSet);
+          try {
+            await savePengaturan({
+              namaSekolah: fd.get('namaSekolah').trim(),
+              tagline: fd.get('tagline').trim(),
+              telepon: fd.get('telepon').trim(),
+              email: fd.get('email').trim(),
+              alamat: fd.get('alamat').trim(),
+              sambutan: fd.get('sambutan').trim()
+            });
+            showToast("Pengaturan sekolah berhasil disimpan!");
+            render();
+          } catch (err) {
+            showToast("Gagal menyimpan pengaturan.", "error");
+          }
+        };
+      }
+
+      if (state.view === 'public') {
+        initHeroInteractions();
+      }
+    }
+
+    // =========================================================================
+    // MAIN RENDER FUNCTION & BOOTSTRAP
+    // =========================================================================
+    function render() {
+      const container = document.getElementById('app-content');
+      if (state.view === 'public') {
+        container.innerHTML = renderPublicPage();
+      } else if (state.view === 'login') {
+        container.innerHTML = renderLoginPage();
+      } else if (state.view === 'ortu' && state.currentUser?.role === 'ortu') {
+        container.innerHTML = renderOrtuDashboard();
+      } else if (state.view === 'admin' && state.currentUser?.role === 'admin') {
+        container.innerHTML = renderAdminDashboard();
+      } else {
+        state.view = 'public';
+        container.innerHTML = renderPublicPage();
+      }
+      bindEvents();
+      document.getElementById('tk-app-shell').scrollTo({ top: 0, behavior: 'instant' });
+    }
+
+    // Bootstrap Aplikasi
+    async function initApp() {
+      if (!IS_PREVIEW && db) {
+        await loadPublicData();
+        if (auth) {
+          onAuthStateChanged(auth, async (user) => {
+            if (user && state.view === 'admin') {
+              state.currentUser = { role: 'admin', data: { email: user.email, uid: user.uid } };
+              await loadAdminData();
+              render();
+            }
+          });
+        }
+      }
+      render();
+    }
+
+    initApp();
+  </script>
+</body>
+</html>
